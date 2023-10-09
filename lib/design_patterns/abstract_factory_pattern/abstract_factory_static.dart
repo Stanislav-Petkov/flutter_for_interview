@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_for_interview/design_patterns/abstract_factory_pattern/platform_button.dart';
 import 'package:flutter_for_interview/design_patterns/abstract_factory_pattern/platform_indicator.dart';

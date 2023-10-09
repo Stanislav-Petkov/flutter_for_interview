@@ -1,10 +1,6 @@
 /// encapsulation
 class VehicleEncap{
-  String? _model;
-
-  String? get model => _model;
-
-  set model(String? model) => _model = model;
+  String? model;
 
 }
 
@@ -31,11 +27,11 @@ class Student1 {
   }
 }
 
-// void main() {
-//   Employee employee = Employee();
-//   employee.setName('GG');
-//   print('employee name is ${employee.getName()}');
-//   print('employee name is ${ employee._name}');
-//   employee._name = 'GG1';
-//   print('employee name is ${ employee._name}');
-// }
+void main() {
+  Employee employee = Employee();
+  employee.setName('GG');
+  print('employee name is ${employee.getName()}');
+  print('employee name is ${ employee._name}');
+  employee._name = 'GG1';
+  print('employee name is ${ employee._name}');
+}

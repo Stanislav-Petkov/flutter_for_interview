@@ -4,7 +4,9 @@ void main(){
   List<String> names = ['Max','John','Sara','Peter'];
   // With forEach method
   List<String> letters = [];
-  names.forEach((name)  => letters.add(name.split('').first));
+  for (var name in names) {
+    letters.add(name.split('').first);
+  }
   print(letters.join());
 
   

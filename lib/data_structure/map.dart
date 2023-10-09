@@ -42,7 +42,7 @@ void regularMap() {
 
   // iterate on key values
   toppings.forEach((key, value) {
-    print(key + ' ' + value);
+    print('$key $value');
   });
 
   // copy a map

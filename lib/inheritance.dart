@@ -10,6 +10,7 @@ class Animal{
 
 class Bird extends Animal{
   Bird(String name) : super(name);
+  @override
   void chase(Animal animal){
     print("name is $name ,type is ${animal.runtimeType}");
   }

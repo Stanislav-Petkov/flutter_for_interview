@@ -27,9 +27,9 @@ class Coffee implements Beverage {
   String get ingredients {
     var stringIngredients = _ingredients.fold<String>("", (total, ingredient) {
       if (_ingredients.last.name == ingredient.name) {
-        return total + "and ${ingredient.name}";
+        return "${total}and ${ingredient.name}";
       }
-      return total + "${ingredient.name}, ";
+      return "$total${ingredient.name}, ";
     });
 
     return stringIngredients;

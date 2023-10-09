@@ -33,7 +33,7 @@ abstract class PlatformIndicator {
 class IOSIndicator implements PlatformIndicator{
   @override
   Widget build() {
-    return CupertinoActivityIndicator();
+    return const CupertinoActivityIndicator();
   }
   @override
   Color color() {

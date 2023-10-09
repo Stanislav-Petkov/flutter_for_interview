@@ -26,7 +26,7 @@ void encapsulations(){
 }
 void constConstructors() {
   const a = Bike('name1', 'school', example: 'example1');
-  var b = Bike('name1', 'school', example: 'example1');
+  var b = const Bike('name1', 'school', example: 'example1');
   print('a: ${a.hashCode} b: ${b
       .hashCode}'); // if Bike is const then same else different
   print('a == b: ${a == b}'); // if Bike is const then true else false
@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage>
   void initState() {
     super.initState();
 
-    platform = MethodChannel('com.example/battery');
+    platform = const MethodChannel('com.example/battery');
     print('initState');
     _animationController = AnimationController(vsync: this);
     image = const NetworkImage('https://picsum.photos/250?image=9');
@@ -149,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage>
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   // While the Future is still running, show a loading indicator.
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 } else if (snapshot.hasError) {
                   // If there's an error, display an error message.
                   return Text('Error: ${snapshot.error}');
@@ -166,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage>
             ),
             ElevatedButton(
               onPressed: widget.onPressed,
-              child: Text('DidUpdateWidget'),
+              child: const Text('DidUpdateWidget'),
             ),
             ElevatedButton(
                 onPressed: () {
@@ -176,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage>
                     ),
                   );
                 },
-                child: Text('Go To Another')),
+                child: const Text('Go To Another')),
             // Image.network('https://picsum.photos/250?image=9'),
             // Image(image: image),
           ],

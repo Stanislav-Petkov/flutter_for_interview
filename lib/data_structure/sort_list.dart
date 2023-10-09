@@ -18,7 +18,7 @@ void main(){
     Human(name: 'd', age: 2),
   ];
   h.sort((a,b)=>a.age.compareTo(b.age));
-  h.forEach((element) { print({element.name});});
+  for (var element in h) { print({element.name});}
 }
 
 class Human{

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -32,7 +34,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.onPressed, required this.title})
+  const MyHomePage({Key? key, required this.onPressed, required this.title})
       : super(key: key);
 
   final String title;
@@ -68,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage>
     super.didUpdateWidget(oldWidget);
     print('oldWidget: ${oldWidget.hashCode} newWidget: ${widget.hashCode}');
     print('didUpdateWidget');
-    if (this.widget.title != oldWidget.title) {
+    if (widget.title != oldWidget.title) {
       print('title was changed');
     }
   }
@@ -108,16 +110,16 @@ class _MyHomePageState extends State<MyHomePage>
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => ExamplePage()));
+                      MaterialPageRoute(builder: (context) => const ExamplePage()));
                 },
-                child: Text('dispose'))
+                child: const Text('dispose'))
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -129,13 +131,15 @@ class _MyHomePageState extends State<MyHomePage>
   }
 }
 class ExamplePage extends StatelessWidget{
+  const ExamplePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ExamplePage'),
+        title: const Text('ExamplePage'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('ExamplePage'),
       ),
     );

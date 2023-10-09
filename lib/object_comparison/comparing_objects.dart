@@ -14,7 +14,7 @@ void main() {
   print('$original $modified');
 
   // Immutable list using 'const'
-  final List<int> immutableList = const [1, 2, 3];
+  const List<int> immutableList = [1, 2, 3];
   // immutableList.add(4);//throws an error
 // Immutable list using 'UnmodifiableListView'
   final List<int> mutableList = [1, 2, 3];
@@ -60,8 +60,8 @@ void main() {
   print('identical(s1, s2): ${identical(s1, s2)}');
   print('identical(s1, s3): ${identical(s1, s3)}');
 
-  var o = new Object();
-  var isIdentical = identical(o, new Object()); // false, different objects.
+  var o = Object();
+  var isIdentical = identical(o, Object()); // false, different objects.
   isIdentical = identical(o, o); // true, same object.
   isIdentical = identical(const Object(), const Object()); // true, const canonicalizes.
   isIdentical = identical([1], [1]); // false, different new objects.
@@ -83,10 +83,10 @@ void main() {
 
   print('===============================================');
 
-  final Item itemA1 =  Item(name: 'A', price: 100);
-  final Item itemA2 =  Item(name: 'A', price: 100);
-  final Item itemA3 = itemA1;
-  final Item itemB = Item(name: 'B', price: 200);
+  const Item itemA1 =  Item(name: 'A', price: 100);
+  const Item itemA2 =  Item(name: 'A', price: 100);
+  const Item itemA3 = itemA1;
+  const Item itemB = Item(name: 'B', price: 200);
 
   print('itemA1 == itemA2: ${itemA1 == itemA2}');
   print('itemA1 == itemA3: ${itemA1 == itemA3}');
