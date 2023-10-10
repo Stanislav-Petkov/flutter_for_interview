@@ -1,17 +1,23 @@
+//https://www.youtube.com/watch?v=OThpFGSzV1g&ab_channel=Flutterly
 import 'package:flutter_for_interview/factory_shape.dart';
 
-abstract class UserRepositoryInterface{
-  UserRepositoryInterface(){
+abstract class UserRepositoryInterface {
+  UserRepositoryInterface() {
     print("UserRepositoryInterface55555");
   }
+
   List<int> users = [];
+
   void create();
+
   void update();
-  void delete(){
+
+  void delete() {
     print("delete");
   }
 }
-class UserRepository implements UserRepositoryInterface{
+
+class UserRepository implements UserRepositoryInterface {
   @override
   void create() {
     // TODO: implement create
@@ -22,7 +28,7 @@ class UserRepository implements UserRepositoryInterface{
     // TODO: implement update
   }
 
-  void test(){
+  void test() {
     print("test");
   }
 
@@ -35,11 +41,13 @@ class UserRepository implements UserRepositoryInterface{
   }
 }
 
-class Animal{
+class Animal {
   external void chase();
+
   external void chase1();
 }
-class D implements Animal{
+
+class D implements Animal {
   @override
   void chase() {
     // TODO: implement chase
@@ -49,9 +57,6 @@ class D implements Animal{
   void chase1() {
     // TODO: implement chase1
   }
-
-
-
 }
 // void main(){
 //   // UserRepositoryInterface userRepositoryInterface = UserRepositoryInterface();
@@ -64,8 +69,10 @@ class D implements Animal{
 
 abstract class Shape {
   int dim1, dim2;
+
   // Constructor
   Shape(this.dim1, this.dim2);
+
   // Abstract method
   void area();
 }
@@ -100,4 +107,31 @@ void main() {
 
   Triangle triangle = Triangle(10, 20);
   triangle.area();
+}
+
+class Student {
+  void work() {
+    print("work as stuent: ");
+  }
+}
+
+class Worker {
+  Worker() {
+    print("Worker");
+  }
+
+  void work() {
+    print("work as worker");
+  }
+}
+
+class Human implements Student, Worker {
+  Human() {
+    print("Human");
+  }
+
+  @override
+  void work() {
+    // TODO: implement work
+  }
 }

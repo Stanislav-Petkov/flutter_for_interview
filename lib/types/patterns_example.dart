@@ -51,4 +51,73 @@ void main() {
     default:
       print('default');
   }
+
+  print('======= pattern matching ===============7');
+  final human = Human( 'DD', 1);
+  print(human.name); /// how we did it before dart 3
+  print(human.age);
+
+  // need to pass the name of the properties with : before the value
+  final Human(:age, :name) = human; // pattern matching, no need to be in the same order
+  print(name); // can use the default name of the property
+  print(age);
+
+  // if we want to use a property, but with a different name
+  final Human(age:ageOtherAge, name:nameOthereName) = human;
+  print(nameOthereName);
+  print(ageOtherAge);
+
+  print('======= swap variables ===============8');
+
+  var (y,n) = ('yes','no');
+  print((y,n));
+  (y,n)=(n,y);
+  print((y,n));
+
+  print('======= recognise switch case conditions ===============8');
+  List<String> ll = ['Hi','MAN'];
+  switch(ll){
+    case ['Hi', 'MAN'] :
+      print('dude');
+  }
+
+  switch(ll){
+    // If the first element is either Hi or HI and if the second is MAN
+    case ['Hi'||'HI', 'MAN'] :
+      print('dudeOR');
+  }
+
+  int index = 1;
+  switch(ll){
+  // extra condition, if the index is 1
+    case ['Hi'||'HI', 'MAN'] when index == 1:
+      print('dude When');
+  }
+
+  print('======= switch case to assign variables ===============9');
+  int page = 0;
+
+  final text = switch(page){
+    0 => 'Click Here', // no need to use case instead use =>
+    1 => 'Click Me',
+    _ => 'Click Me Now', // instead of default use _
+  };
+  print(text);
+
+  int lastPage = 1;
+
+  // This switch can be used in Flutter also 
+  final text1 = switch(lastPage){
+    0 => 'Click Here', // no need to use case instead use =>
+    1 when page == lastPage => 'Click Me',
+    _ => 'None', // instead of default use _
+  };
+  print(text1);
+
+}
+
+class Human {
+  Human(this.name, this.age);
+  final String name;
+  final int age;
 }

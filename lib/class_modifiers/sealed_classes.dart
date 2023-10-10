@@ -1,3 +1,5 @@
+import 'class_modifiiers_example.dart';
+
 sealed class Vehicle {}
 
 class Car extends Vehicle {}
@@ -13,6 +15,7 @@ class Bicycle extends Vehicle {}
 Vehicle myCar = Car();
 
 String getVehicleSound(Vehicle vehicle) {
+
   // ERROR: The switch is missing the Bicycle subtype or a default case.
   return switch (vehicle) {
     Car() => 'vroom',
@@ -20,4 +23,7 @@ String getVehicleSound(Vehicle vehicle) {
     // TODO: Handle this case.
     Bicycle() => 'ring ring',
   };
+
 }
+
+
