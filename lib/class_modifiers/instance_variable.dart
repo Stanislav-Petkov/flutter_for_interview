@@ -29,5 +29,5 @@ void main() {
   assert(point._x == 4); // Use the getter method for x.
   assert(point.y == null); // Values default to null.
 
-  // PointA
+
 }

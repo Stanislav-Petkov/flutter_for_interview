@@ -41,10 +41,16 @@ void main() {
 
   print('------- const constructor ------------');
 
-  const c = ImmutablePoint(0, 0);
+  const c =  ImmutablePoint(0, 0);
   print(c.x);
   print(c.y);
 
+  var a = const ImmutablePoint(1, 1); // Creates a constant
+  var b = ImmutablePoint(1, 1); // Does NOT create a constant
+
+  assert(!identical(a, b)); // NOT the same instance!
+
+  print('object Type of a: ${a.runtimeType}');
   print('------- factory constructor ------------');
 
   var logger = Logger('UI');
@@ -105,6 +111,7 @@ class ImmutablePoint {
   const ImmutablePoint(this.x, this.y);
 }
 
+// https://dart.dev/language/constructors#factory-constructors
 class Logger {
   final String name;
   bool mute = false;
