@@ -1,0 +1,717 @@
+
+YouTube Flutter Interview Playlist
+https://www.youtube.com/watch?v=IOyq-eTRhvo&list=PL87Blzzn_ra87-XlkvbU-ON3aUX1DdDZV&ab_channel=Flutter
+
+Preparation
+
+1. Bricks 14.09.9:30 - 10:15
+More info: /Users/stanislav.petkov/StudioProjects/rx_bloc/packages/rx_bloc_cli/mason_templates/README.md
+
+2. Uploading to Google play store 
+3. Apple developer certificates 
+4. Provisioning Profile 
+5. Proficiency in Dart programming language and a deep understanding of the Flutter framework 
+6. Familiarity with state management solutions like Provider or Bloc
+7. Solid understanding of mobile app architecture patterns, such as MVVM or Redux
+8. Experience with version control systems, particularly Git
+9. Strong problem-solving skills and the ability to optimize app performance
+10. Push notifications
+11. Authentication
+12. Routing
+13. Flavors
+14. Fastlane CI/CD
+15. OOP principles 
+
+16. Mobile development life cycle
+17. API integration
+18. Knowledge and experience in SOLID principles, clean architecture, 
+and unit/widget and integration testing
+19. Understanding of Android design principles and interface guidelines
+20. Familiarity with BloC architecture, Dio, RiverPod
+21. Expertise in custom UI implementation
+22. REST principles understanding
+23. Knowledge of design patterns SOLID and GRASP paradigms
+24. Awareness of multithreading and memory management
+25. Proficiency in front-end core skills, including HTML5 and CSS3
+26. improving application performance
+27. OOP concepts, design patterns, data structures and algorithms
+28. Conversance with GraphQL APIs
+29. Understanding of REST
+30. Skills in OOP/SOLID principles
+31. explain difference between tests - unit test, widget test, integration test
+32 just in time compilation , ahead of time compilation
+33. handle permissions
+34. widget lifecycle method 
+35 Flutter App lifecycle:
+36 Comparing objects in dart 
+37. Explain the role of service layer, use cases, repository layer, data layer 
+38. Explain future future 
+39. HTTP error codes 
+40. explain mapping dto
+41. where should we use sealed classes
+42. What is local storage used for 
+43. In which part of the http request is the content sent to the api
+44. Why do we need dependency injection 
+45. Flutter widgets
+46. Flutter packages
+47. Flutter mock interview
+48. Isolate, Parallelizm
+49. Event Loop
+50. Experience in Core Data, SQLite,Firebase, Push-Notifications;
+51. Race condition
+52. Flutter navigation
+53. BuildContext
+54. Garbage collection
+
+53. BuildContext
+https://www.youtube.com/watch?v=rIaaH87z1-g&ab_channel=Flutter
+
+52. using Navigator class
+https://www.youtube.com/watch?v=b17bmcRpSuU&ab_channel=LearnFlutterwithMe
+
+48. Isolate
+https://www.youtube.com/watch?v=yUMjt0AxVHU&ab_channel=Flutter
+- Isolates can be created with the compute() function
+for short lived worker isolate - to execute a single function (process and image or
+parse large json blob)
+https://api.flutter.dev/flutter/foundation/compute.html
+- For long-lived isolate do the setup manually : https://youtu.be/yUMjt0AxVHU?t=644
+
+https://www.youtube.com/watch?v=vl_AaCgudcY&ab_channel=Flutter
+
+https://dart.dev/language/concurrency
+
+45. Flutter widgets
+Flutter questions:
+What is a Widget Widget: https://www.youtube.com/watch?v=wE7khGHVkYY&ab_channel=GoogleforDevelopers
+
+Widgets are configurations for pieces of apps UI
+Widget are configurations for elements.
+Elements is a widget that has been made real and mounted on the
+screen.
+Element tree represents what is displayed on the device.
+Each widget class has both a corresponding element class
+and a method to create an instance.
+Read documentation for StatelessWidget 
+StatefullWidget: https://www.youtube.com/watch?v=AqCMFXEmf3w&t=36s&ab_channel=GoogleforDevelopers
+
+Types Of Widgets from Material: https://docs.flutter.dev/ui/widgets/material
+Basic Widgets:https://docs.flutter.dev/ui/widgets/material
+
+Widgets:
+FocusScope https://api.flutter.dev/flutter/widgets/FocusScope-class.html
+MaterialApp
+
+Widget vs Helper methods (const):
+https://www.youtube.com/watch?v=IOyq-eTRhvo&ab_channel=Flutter
+
+46. Flutter packages
+
+Flutter_Packages:
+provider
+riverpod
+freezed
+
+47. Flutter mock interview
+https://www.youtube.com/watch?v=8xtCKUImrjw&ab_channel=AkshitMadan
+
+
+
+41. where should we use sealed classes
+
+Example: We should use them in the ui to check the type of received error 
+abstract class cannot be instantiated
+
+A sealed class cannot be extended or implemented outside of its library (file).
+A sealed class is implicitly an abstract class and it cannot be instantiated
+
+A 'final class' cannot be implemented or extended outside of the same library
+
+
+
+39. HTTP error codes 
+error 400 are such that happen from the client side and we should not retry
+the request if such error happen, but search for the cause of the error
+in the app 
+
+40. explain mapping dto
+we should have one model for the incoming data 
+we should have another model for the data in the ui 
+so that when the API returns a different JSON structure
+we fix the mapping of the dto and fix the class that is at the 
+data source layer.
+
+flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
+
+
+9. app performance
+reduce app size memory:
+ - remove unused code
+ - minimize plugins, packages,
+ - compress pictures and videos 
+ 
+ https://docs.flutter.dev/testing/build-modes
+ Use profile mode when you want to analyze performance.
+ Common problems:
+ - rebuilding ui more than necessary - this happens when you do
+ things in the build method , which should not be there
+ 
+ Best practice:
+ - avoid repetitive work in build method
+ - split up widgets in smaller widgets
+ - if needed use isolates
+ - use effects like opacity or collor filter only when necessary
+ - build lists lazyly with ListView.builder()
+ - when using animations try to rebuild as little as possible
+ - avoid clipping animation
+ - don't pass long lists into constructor
+ 
+ - setup code linting rules
+ - single responsibility for the widgets - this makes it easier to refactor and understand
+ - keep widgets small 
+ - setup ci/cd from begining
+ - do not hard code colors and style, but use a theme
+ 
+https://www.youtube.com/watch?v=MWEz-TB9mGM&ab_channel=TadasPetra
+
+15. OOP principles
+
+15.1 - Inheritance
+- Inheritance concept is achieved by using the extends keyword
+- class Duck extends Bird - Duck (derived, subclass), Bird(base, superclass)
+- Extends is used for sharing behavior between superclass and subclass
+- fields and methods inside the superclass are available in the subclass
+- the superclass can be accessed by using the super keyword
+- all dart classes extend only 1 class(Object class by default)
+-The concept of polimorphism can be achieved in 1 way:
+@override method.
+- you can tighten a type by using the covariant keyword 
+
+15.2 Abstraction
+- abstraction concept is achieved by the 'implements' keyword
+- abstract methods can be declared in abstract class
+- abstract class is used as a constract, which should be implemented
+and all of its abstract methods should be overridden and implemented, 
+with functionality. The properties of the abstract class also should
+ be implemented
+- implements keyword forces the behavior of the parent class in the child
+class. 
+- many classes can be implemented
+- abstract class cannot be instantiated
+- every class is an implicit interface, even if its methods are not abstract
+they can be overriden and implement in a child class 
+- in not abstract class there can be an abstract method, which should 
+start with the 'external' keyword, which denotes that the implementation
+of the method should be in the child class of the current one, which
+either extends or implements the current one.
+- when a class only implements classes, we cannot use the super keyword
+inside it to access porent class methods, fields and constructor 
+ 
+
+15.3. Mixins
+- Mixins are used to share behavior between one or more classes
+- in dart , you can extend one single class, implement or mixins
+one or more classes
+- The order in which you write the mixins after the with keyword matters
+- a mixin cannot be instantiated, it cannot have a constructor
+a mixin that mixes in with other class can use its methods and 
+can even override some of them 
+- both  'mixin' and 'mixin class' cannot have a constructor , 
+-Mixins and mixin classes cannot have an extends clause, and must 
+not declare any generative constructors.
+Example with on:
+class Musician {}
+mixin MusicalPerformer on Musician {}
+class SingerDancer extends Musician with MusicalPerformer {}
+In the preceding code, only classes that extend or implement the
+Musician class can use the mixin MusicalPerformer. Because 
+SingerDancer extends Musician, SingerDancer can mix in MusicalPerformer.
+-Mixins can’t have extends or with clauses, so neither can a mixin class.
+- Classes can’t have an on clause, so neither can a mixin class.
+
+
+
+
+
+
+27. Design patterns
+
+- singleton 
+https://medium.com/@kishore_p18/singleton-in-dart-2c4f63c2b60c#:~:text=Singleton%20pattern%20restricts%20the%20instantiation,logging%2C%20drivers%20objects%20and%20caching.
+Singleton pattern is a Creational Software Design Pattern 
+that restricts the instantiation of a class to one “single” 
+instance. This is useful when exactly one object is needed
+to coordinate actions across the application.
+Why should we use Singleton pattern?
+
+Singleton pattern restricts the instantiation of a class and ensures 
+that only one instance of the class exists.
+The singleton class provides a global access point to get the instance 
+of the class.
+Singleton pattern is used for logging, drivers objects and caching.
+
+Usage:
+In flutter - it can be used with sockets
+- can be used when we want only 1 instance of our database available
+- FirebaseAuth.instance  uses the singleton pattern 
+
+Advantage:
+- You are sure the class has only 1 instance
+- You get a global access point to that instance
+- You cannot override the value of the instance from outside of the Singleton class
+
+Disatvantage
+- The pattern violates the single responsibility principle, because it serves
+for two purposes, has 2 responsibilities:
+- provides 1 instance
+- provides global access point to the instance
+- singletons are hard to test
+- if it is not initialised in a lazy way, then when we call the instance creation, it
+ will be created, even if it is not used.
+- singletons stay alive as long as the app is alive 
+
+-Factory Method Pattern
+
+https://scottt2.github.io/design-patterns-in-dart/factory_method/#:~:text=The%20factory%20method%20pattern%20is,object%20that%20will%20be%20created.
+
+The factory method pattern is a creational pattern that uses factory 
+methods to deal with the problem of creating objects without having 
+to specify the exact class of the object that will be created. This 
+is done by creating objects by calling a factory method—either 
+specified in an interface and implemented by child classes, or
+ implemented in a base class and optionally overridden 
+by derived classes—rather than by calling a constructor.
+- disatvantage - makes code difficult to read 
+
+
+- Adapter Pattern:
+https://www.youtube.com/watch?v=3eNhD6ZQ6hQ&list=RDCMUC-1kzHtwBY8n0TY5NhYxNaw&start_radio=1&rv=3eNhD6ZQ6hQ&t=142&ab_channel=RivaanRanawat
+Adapter is a structural design pattern that allows objects with 
+incompatible interfaces to collaborate.
+
+The Adapter pattern allows the interface of an existing class to be
+ used as another interface, making it compatible with a client's requirements.
+Example: Adapting a third-party library or legacy code to work with
+ your application's interfaces.
+
+- abstract factory pattern
+Serves as alternative to facade pattern 
+It can be used alog with bridge pattern
+It can be implemented as singleton
+https://refactoring.guru/design-patterns/abstract-factory
+ Pros and Cons
+
+
+https://www.youtube.com/watch?v=eEg1CBKuqFg&list=PLlzmAWV2yTgB-1LdoO-9vCTgrE-1dyWKP&index=3&ab_channel=RivaanRanawat
+
+- prototype pattern
+https://refactoring.guru/design-patterns/prototype
+Prototype is a creational design pattern that lets you copy existing objects
+ without making your code dependent on their classes.
+
+
+- decorator pattern
+Decorator is a structural design pattern that lets you attach new 
+behaviors to objects by placing these objects inside special wrapper 
+objects that contain the behaviors.
+
+
+- repository pattern:
+Structural design pattern 
+https://codewithandrea.com/articles/flutter-repository-pattern/
+
+
+============
+
+
+30 solid:
+
+https://www.youtube.com/watch?v=kF7rQmSRlq0&ab_channel=AlexHyett
+
+- 1. Single responsibility- every class or method should have only 
+one responsibility
+It should know and understand only how this thing work.
+ It should have single reason to change
+
+- 2. Open closed principle - every class or method should be open for extension, but 
+closed for modification
+When we want new functionality to a class, instead of adding it to the class directly
+we use the decorator pattern, which implements the same interface, which the class is implenting
+and add the functionality there . In this case, we do not break the unit tests writen to the
+initial class methods. And additional consequences could arise, if we change existing
+methods
+- Also to add functionality we can use extension methods on a class and we will not change
+the file in this way
+- Using inheritance also a class functionality can be extended
+
+- 3. Liskov substitution :
+a subtipe should be replacable by parent type
+The child class, should be able to do everything that the parent class does
+	Human
+    |    |
+  Adult Baby 
+Example Adult implements Human,,  Baby implements Human
+
+
+- 4. Interface segregation :
+Do not force the subclass to use methods that it doesn't need 
+An issue arises: If we use the repository structural design pattern, 
+we use an abstract repository with a log ot methods , which are then
+ implemented in a repository implementation class.
+ 
+To avoid this : The gist of this principle is: you should create
+ small interfaces with minimal methods. Or split the abstract repository method in several
+ absttract repositories and implement only the one which is needed 
+https://www.topcoder.com/thrive/articles/solid-principles-in-dart
+
+
+- dependency inversion:
+Favor abstraction over implementation 
+High level modules, should not depend on low level modules without an abstraction
+
+Extending an abstract class or implementing an interface 
+is good but descending from a concrete class is bad
+
+https://www.youtube.com/watch?v=tWXPd4Dkuls&ab_channel=FlutterExplained
+https://www.topcoder.com/thrive/articles/solid-principles-in-dart
+
+31 tests:
+https://docs.flutter.dev/testing/integration-tests
+
+https://pub.dev/packages/rxdart
+flutter secure storage
+shared preferences
+using the with keywork , mixins
+class QRBarScannerCameraState extends State<QRBarScannerCamera>
+    with WidgetsBindingObserver {
+JIT AOT - https://youtu.be/4mATPCxj5M8?t=858
+null aware operators ?., ??, ??=, ...?
+
+32. 
+compilers
+just in time compiler - 
+take new code and inject it into the old code, which allows  hot reload, hot restard
+of flutter. With jit you update only this part of the application that you need.
+Ahead of time compiler - creates production ready code with one outcome which a convertion of
+the dart language to something that the computer understands. We achieve performance 
+boost. With jit we update the code on the runtime.
+
+Concurency:
+The isolate allows async functions to run in a different dart vm 
+https://youtu.be/OBDWm6xSyT0?t=1610
+When the heavy computation answer is ready , it is injected into the code 
+
+33 permissions
+https://www.youtube.com/watch?v=SghsImxwGxE&ab_channel=DavidSerrano
+
+34 Flutter widget lifecycle:
+https://www.youtube.com/watch?v=CjloInz3-I0&ab_channel=RobertBrunhage
+When the 
+
+- initState
+
+- didChangeDependencies
+When dependencies change, context also change. We can call something.of(context)
+in the method, but it cannot be done in the initState(). 
+If we call: ModalRoute.of(context)?.settings.arguments; and the settings have changed
+but they are part of the dependencies then if it is called in the didChangeDependencies
+there will be no error compared to calling it in initState.
+
+- didUpdateWidget
+Called whenever the widget configuration changes. Such as passing 
+variables to the constructor. If we pass a duration for a controller
+then it needs to update the duration of the controller and the mehtod is called
+
+-deactivate
+Called when this object is removed from the tree.
+
+- dispose - called  when the object is removed from the tree permanently 
+called when you call Navigator.pushReplacement. Dispose here animation controllers,
+timers, streams. 
+If the dispose is not called, memory leaks can happen.
+
+
+
+35 Flutter App lifecycle:
+ - detached
+The application is still hosted on the flutter engine, but is detached from any host views
+After a destroyed view, due to navigator.pop()
+
+
+ - inactive
+
+The application does not receive user input
+Example, when you take a phone call 
+
+
+ - paused
+When the app is not visible to the user , not responding to user input and
+running in the background.
+Ex: When the home button is pressed and the app minimizes
+ 
+ - hidden 
+ 
+ All views of an application are hidden, either because the application is
+about to be paused (on iOS and Android), or because it has been minimized
+ or placed on a desktop that is no longer visible (on non-web desktop), or
+is running in a window or tab that is no longer visible (on the web).
+ 
+ -resumed 
+
+The application is visible and responding to user input 
+It is called when you navigate back into the app
+
+
+36 comparing objects:
+https://www.woolha.com/tutorials/dart-compare-two-objects#:~:text=Just%20like%20other%20programming%20languages,whether%20two%20objects%20are%20equal.
+
+
+
+
+
+
+
+
+
+
+=
+===============================================================================================
+- Dart
+- OOP
+- Dart collections
+- Asynchronous programming
+- generator functions
+Flutter framework
+- Stateful vs Stateless widget
+- BuildContext
+- package vs plugins
+- hot restart vs hot reload
+- UI (Scaffold, Row , Column ))
+
+Very important:
+When to use which and why:
+- State management (Provider, BLoc), GIT
+
+What are and how to use them
+- Advanced Asynchronous programming(Streams, Isolates, Event Loops)
+- Responsive UI, Test(unit, widget, integration), 
+
+Important:
+- Project Architecture - how to organise a project, how to make it scallable
+- Firebase services
+- CI/CD(Codemagic, Bitrise, Github Actions)
+- Performance, 
+- app release - best practices for app release
+
+What tools and packages would you use for :
+- fully reponsible mobile app,
+- real time multiuse app,
+- background location based app
+
+Practica small test task
+- setup for a state management solution
+- network calls !!!
+- ui implementation of screens
+
+Questions:
+- What is flutter?
+
+A:It is a cross platform development toolkit by Google, which helps
+to deploy on multiple platforms with a single code base and 
+achieven great UI quickly
+
+- What are the types of widgets in Flutter?
+A: Stateful and Stateless
+
+- What is the difference between StatefullWidget and StatelessWidget?
+A: Statefull widgetts hold state of the sidget and can be rebuild when
+state changes. Whereas Stateless widgets are build only when it is 
+created or the parent changes.
+
+- How to access the (screen size /  pixel density / aspect ration )in Flutter?
+A: We can access screen size and other properties like pixel density, aspect
+ration etc with help of MediaQuery. syntact: MediaQuery.of(context).size.width
+
+- What is provide and how it works?
+A: Provie is a simple way for state management, it works on the concept
+of PUB-SUB, which means there is  one provide and multiple subscribers,
+which are called consumers here. Whenever there is a chagne, with
+notifyChangeListener it will update all the consumers.
+
+- How do we access native feature of the Platform?
+ed: Battery level. 
+A: Plugins or method channel
+
+- Other cross platform frameworks
+A: Ionic
+
+- Why do we need mixins?
+A: Dart does NOT support multiple inheritance. Thus to implement the multiple
+inheritance in Flutter, we need mixins. Mixins provide a way to write code in
+multiple class hierarchies.
+
+- What is tree shaking in Flutter?
+A: An optimization technique to remove the unused module in the bundle during
+the build process. It is a code elimination techniques used to optimize
+our application.
+
+- Material Design
+A: Material Design is an open-source design system built and supported by
+ Google designers and developers.
+
+- 3 modes of compiling
+- debug, profile, release
+Debug - compilation is optimized for development in debug mode 
+profile - debugging is enabled to profile your app’s performance.
+Profile mode is disabled on the emulator and simulator.
+release - for deploying the app,for maximum optimization. Debuggin and
+ assertions are disabled.
+https://docs.flutter.dev/testing/build-modes
+
+
+- Flutter module:
+Flutter can be embedded into your existing Android application , as 
+a source code Gradle subproject or as AARs.
+https://docs.flutter.dev/add-to-app/android/project-setup
+flutter Module is flutter code, which is used in your native code for android
+or ios 
+
+- Flutter plugin
+Native code for android or ios , which you use in the flutter app 
+
+- null aware operator
+x ??= y
+We assign y to x only if x is null .
+
+
+z = x ?? y 
+x is assigned to z , if x is not null
+if x is null , y is assigned to z
+
+- What is the use of FormState
+A: State associated with a Form widget. A FormState object can be used
+ to save, reset, and validate every FormField that is a descendant of the associated Form.
+Typically obtained via Form.of.
+
+- What is a key?
+A: A unique identifier of a widget
+
+- How to dismiss the keyboard programmatically?
+A: FocusScope.of(context).unfocus();
+
+- What is the use of await?
+A: Is is only used inside an async. It suspends currently running function
+until the result is completed. The result is completed with a future.
+
+- What is the use of double.infinity?
+A: It is used to when you want to specify the widget should be as big as a parent
+
+- What is the use of SafeArea widget?
+A: It'a a widget that makes it easy to place our widgets in a portion of the
+view thats unobscured by bars and other content like status bars
+
+- How to clos or dismiss keyboard in flutter?
+FocusScope.of(context).requestFocus(FocusNode());
+
+- Explain tween animations
+A: Tween animation is also know as betweening. In tween animations, we defin the
+beginning and the end of the animation, and the framework itself calculates how 
+to transition the widget to fulfill values.
+
+- What is pubspec.yaml?
+A: It allows you to defin the packages your app relies on, declare assets like
+images, video. It allows you to set contraints for your app.
+
+- What is the difference between NetworkImage and Image.network()?
+A: NetworkImage creates and object, which provide an image from src URL.
+
+Image.network is aA named constructor, which creates a widget 
+that displays an image on the screen
+obtained from the network.
+
+1 option: 
+late NetworkImage image;
+in initState:
+image = const NetworkImage('https://picsum.photos/250?image=9');
+in the build method:
+Image(image: image),
+
+2nd option in the build method:
+Image.network('https://picsum.photos/250?image=9'),
+
+- How do you override the back-button action?
+A: by using the WillPopScope widget 
+
+- What are the different types of gridview?
+A: GridView.count(), GridView.builder(),GridView.custom(),
+GridView.extend()
+
+- What is ScopedModel / BloC Pattern?
+A: ScopedModel and BLoC(Business Logic Components) are common Flutter app
+arhitecture patterns to help separated business logic from UI and using fewer
+StatefulWidgets
+
+- Explain Flutter inspector
+A: The inspector is a powerful tool for visualizin and exploring Flutter widget
+trees. It is very useful for understanding existing layouts and Diagnosing layout
+issues.
+
+- What are the types of List views?
+A: ListView, ListView.builder(), ListView.separated, ListView.custom
+
+
+https://www.youtube.com/watch?v=LjnhP8KqI4o&ab_channel=JobInterviewQuestions-InterviewGIG
+
+=================================
+
+- widget lifecycle methods
+initState
+didChangeDependencies
+didUpdateWidget
+deactivate
+dispose
+
+
+=================================
+
+dart static keyword
+
+https://softuni.bg/trainings/resources/officedocument/50997/presentation-java-oop-june-2020/2837
+slide 35 
+static variable 
+- Allocate memory only once in class area at the time of class loading
+- Used to refer to the common variables of all objects
+
+static method:
+- Can be invoked without the need for creating an instance of the class
+- Can access static data member and can change the value of it
+- Cannot access non-static(instance) members or call non-static methods
+
+
+static methods
+https://www.educative.io/answers/what-are-static-methods-in-dart
+
+================================
+dart const constructor
+
+Improves the performance of the program.
+the hashcode of two const constructors is the same, if the values
+passed to the constructor are the same
+https://flutterigniter.com/dart-const-constructor/
+https://dart-tutorial.com/object-oriented-programming/constant-constructor-in-dart/
+
+
+dart memory management:
+https://marketsplash.com/tutorials/dart/dart-memory-management/#:~:text=Dart%2C%20like%20many%20other%20languages,care%20of%20this%20for%20you.
+
+
+
+
+
+
+
+
+
+
+
+
