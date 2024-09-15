@@ -34,7 +34,7 @@ void main() {
   final p = Person('Sta', 'Pet');
   print('${p.firstName} ${p.lastName}');
 
-  final myMap = {'firstName':'Harry', 'lastName':'Potter'};
+  final myMap = {'firstName': 'Harry', 'lastName': 'Potter'};
   final p2 = Person.fromMap(myMap);
   print('${p2.firstName} ${p2.lastName}');
 

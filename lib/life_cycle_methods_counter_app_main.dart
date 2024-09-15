@@ -109,8 +109,8 @@ class _MyHomePageState extends State<MyHomePage>
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const ExamplePage()));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const ExamplePage()));
                 },
                 child: const Text('dispose'))
           ],
@@ -130,7 +130,8 @@ class _MyHomePageState extends State<MyHomePage>
     });
   }
 }
-class ExamplePage extends StatelessWidget{
+
+class ExamplePage extends StatelessWidget {
   const ExamplePage({super.key});
 
   @override

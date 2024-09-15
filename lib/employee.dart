@@ -1,7 +1,6 @@
 /// encapsulation
-class VehicleEncap{
+class VehicleEncap {
   String? model;
-
 }
 
 class Employee {
@@ -31,7 +30,7 @@ void main() {
   Employee employee = Employee();
   employee.setName('GG');
   print('employee name is ${employee.getName()}');
-  print('employee name is ${ employee._name}');
+  print('employee name is ${employee._name}');
   employee._name = 'GG1';
-  print('employee name is ${ employee._name}');
+  print('employee name is ${employee._name}');
 }

@@ -1,6 +1,11 @@
 void main() {
-
-  final li = <int>[1, 2, 3, 4, 5,];
+  final li = <int>[
+    1,
+    2,
+    3,
+    4,
+    5,
+  ];
   li[1] = 444; // Can modify the value
   print(li);
 
@@ -8,12 +13,16 @@ void main() {
   // const li = <int>[1, 2, 3, 4, 5,];
   // li[1] = 444; // throws a runtime error  Cannot modify an unmodifiable list
   // print(li);
-
-
 }
 
-void operationsOnList(){
-  var li = <int>[1, 2, 3, 4, 5,]; // with type annotation another type
+void operationsOnList() {
+  var li = <int>[
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]; // with type annotation another type
   // cannot be added like this :  <int>[1, 2, 3, 4, 5,'f'];
   print(li);
 

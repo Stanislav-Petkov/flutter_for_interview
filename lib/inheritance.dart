@@ -1,33 +1,34 @@
-mixin class Test{}
+mixin class Test {}
 
-class Animal{
+class Animal {
   String name;
   Animal(this.name);
-  void chase(covariant Animal animal){
+  void chase(covariant Animal animal) {
     print("name is $name ,type is ${animal.runtimeType}");
   }
 }
 
-class Bird extends Animal{
+class Bird extends Animal {
   Bird(String name) : super(name);
   @override
-  void chase(Animal animal){
+  void chase(Animal animal) {
     print("name is $name ,type is ${animal.runtimeType}");
   }
-  void fly(){
+
+  void fly() {
     print("fly");
   }
 }
 
-class Cat extends Animal{
+class Cat extends Animal {
   Cat(String name) : super(name);
 
-
   @override
-  void chase(  Bird animal){
+  void chase(Bird animal) {
     print("name is $name ,type is ${animal.runtimeType}");
   }
-  void meow(){
+
+  void meow() {
     print("meow");
   }
 }
@@ -37,10 +38,11 @@ class Cat extends Animal{
 //   Bird bird = Bird("bird");
 //   cat.chase(bird);
 // }
-class Other{
+class Other {
   String? other;
 }
-class Person extends Other{
+
+class Person extends Other {
   // Properties
   String? name;
   int? age;
@@ -51,6 +53,7 @@ class Person extends Other{
     print("Age: $age");
   }
 }
+
 // Here In student class, we are extending the
 // properties and methods of the Person class
 class Student extends Person {
@@ -81,7 +84,7 @@ void main() {
 abstract class ParentClass {
   // Parent class code
   void t();
-  void g(){}
+  void g() {}
 }
 
 class ChildClass implements ParentClass {
@@ -94,7 +97,6 @@ class ChildClass implements ParentClass {
   void t() {
     // TODO: implement t
   }
-
 
   // Child class code
 }

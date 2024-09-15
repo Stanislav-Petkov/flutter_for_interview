@@ -9,7 +9,7 @@ void main() {
     case Dog():
       print('dog');
   }
-
+  // Animal s = Animal();
   Animal animal = Cat();
 
   switch (animal) {
@@ -26,8 +26,7 @@ void main() {
 
   var c = CatFinal(); // final class can be instantiated
 
-  switch(c){}
-
+  switch (c) {}
 
   CatFinal1 catFinal1 = CatFinal1();
 
@@ -36,7 +35,6 @@ void main() {
   // Animal1 animal1 = Animal1();//Abstract classes can't be instantiated. (Documentation)
 
   // CatAbstractInterface catAbstractInterface = CatAbstractInterface(); //Abstract classes can't be instantiated. (Documentation)
-
 }
 
 abstract class Animal1 {}
@@ -56,63 +54,62 @@ class Human implements Animal {}
 class Dog implements Animal {}
 
 class Cat extends Animal {}
+
 // there is no error in the switch case, because it is not a direct subtype
 // of Animal
-class Cat2 implements Cat{}
+class Cat2 implements Cat {}
 
 // final class cannot be extended or implemented outside of the library as the
 //sealed class
-final class CatFinal{}
-
+final class CatFinal {}
 
 //class extending a final class , must be base, final or sealed
-final class CatBaseF extends CatFinal{}
+final class CatBaseF extends CatFinal {}
+
 // base class cannot be implemented, but it can be extended
-base class CatBase{
-  CatBase(){
+base class CatBase {
+  CatBase() {
     // when a class extending this base is created, this class constructor is called
     print('CatBase');
   }
 }
 
 // class extending a base class , must be base, final or sealed
-base class CatBase1 extends CatBase{}
+base class CatBase1 extends CatBase {}
 
 // the CatBase base class constructor is called also
-final class CatFinal1 extends CatBase{
+final class CatFinal1 extends CatBase {}
 
-}
-
-interface class CatInterface{
-  CatInterface(){
+interface class CatInterface {
+  CatInterface() {
     print('CatInterface');
   }
 }
 
-class CatInterface1 implements CatInterface{}
+class CatInterface1 implements CatInterface {}
 
 // this cannot be done outside of the library, because it is an interface class and
 // there is an error:
 //The class 'CatInterface' can't be extended outside of its library
 // because it's an interface class. (Documentation)
-class CatInterface2 extends CatInterface{}
+class CatInterface2 extends CatInterface {}
 
-abstract interface class CatAbstractInterface{
-  CatAbstractInterface(){
+abstract interface class CatAbstractInterface {
+  CatAbstractInterface() {
     print('CatAbstractInterface');
   }
 }
 
 // can be used as a  class and as a mixin, cannot have a constructor
-mixin class CatMixin{
+mixin class CatMixin {
   // CatMixin(){
   //   print('CatMixin');
   // }
 }
 
-class Animal5{}
+class Animal5 {}
 // before we could do this, but now we cannot
 // class Human5 with Animal5{}
 
 // to use a class with the 'with' keyword, the class must be a mixin
-class Human6 with CatMixin{}
+class Human6 with CatMixin {}

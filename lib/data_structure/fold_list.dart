@@ -1,7 +1,7 @@
-void main(){
+void main() {
   // Put first letter of each name together
   // and print it as a string;
-  List<String> names = ['Max','John','Sara','Peter'];
+  List<String> names = ['Max', 'John', 'Sara', 'Peter'];
   // With forEach method
   List<String> letters = [];
   for (var name in names) {
@@ -9,6 +9,5 @@ void main(){
   }
   print(letters.join());
 
-  
   print(names[0].split(''));
 }

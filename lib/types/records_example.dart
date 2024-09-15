@@ -19,37 +19,41 @@ void main() {
 
   print('=======Immutable===============2');
   // Records are immutable
-  const myRecord = (1.0,'JJ',true);
+  const myRecord = (1.0, 'JJ', true);
   // myRecord.$1 = 4.0; //The setter '$1' isn't defined for the type '(double, String, bool)')
 
   print('=======accessing===============3');
-  var myRecordWithNamed = (h:1.0,'Jo',isAdult:true);
+  var myRecordWithNamed = (h: 1.0, 'Jo', isAdult: true);
   print(myRecordWithNamed.$1); // gets the first element, which is not named
   print(myRecordWithNamed.h); // access by name
 
   print('=======assign new value===============4');
-  myRecordWithNamed = (h:2.0,'Jo',isAdult:true);
-  myRecordWithNamed = (h:4.0,isAdult:true,'Jo',); // can assign in any order
+  myRecordWithNamed = (h: 2.0, 'Jo', isAdult: true);
+  myRecordWithNamed = (
+    h: 4.0,
+    isAdult: true,
+    'Jo',
+  ); // can assign in any order
   // the requirement is that all field types are assigned
   print(myRecordWithNamed.h);
   print(myRecordWithNamed.isAdult);
 
   print('=======assign null value===============5');
 
-  (double, String)? rec = (1.0,'JJ');
+  (double, String)? rec = (1.0, 'JJ');
   print(rec);
   rec = null;
   print(rec);
 
   print('======= equality of records ===============6');
 
-  ({int a, int b}) first = (a:1,b:2);
-  ({int x, int b}) second = (x:1,b:2);
+  ({int a, int b}) first = (a: 1, b: 2);
+  ({int x, int b}) second = (x: 1, b: 2);
   // first = second;// not possibleA value of type '({int b, int x})' can't be
   // assigned to a variable of type '({int a, int b})'. (Documentation)
-  ({int a, int b}) first2 = (a:1,b:2);
-  ({int a, int b}) second2 = (a:4,b:5);
-  first2 = second2;// the name of the variables should be the same
+  ({int a, int b}) first2 = (a: 1, b: 2);
+  ({int a, int b}) second2 = (a: 4, b: 5);
+  first2 = second2; // the name of the variables should be the same
   print(first2);
 }
 

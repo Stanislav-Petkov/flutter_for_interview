@@ -26,7 +26,7 @@ mixin Drummer {
 }
 
 // class Musician extends Performer with  Guitarist,Drummer {}
-class Musician  with  Guitarist,Drummer {}
+class Musician with Guitarist, Drummer {}
 // class Musicia1n  extends  Guitarist {}
 
 void main() {

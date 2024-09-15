@@ -33,8 +33,10 @@ void main() {
   List<Shape> list = [];
   list.add(Circle());
   list.add(Rectangle());
-  list..add(Shape(ShapeType.circle))..add(Shape(ShapeType.rectangle));
-  for(Shape sh in list){
+  list
+    ..add(Shape(ShapeType.circle))
+    ..add(Shape(ShapeType.rectangle));
+  for (Shape sh in list) {
     sh.draw();
     print(sh.hashCode);
   }

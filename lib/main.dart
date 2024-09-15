@@ -8,11 +8,10 @@ import 'inheritet_nose.dart';
 import 'car.dart';
 
 void main() {
-
   runApp(const MyApp());
 }
 
-void encapsulations(){
+void encapsulations() {
   final employee = Employee();
   employee.setName('GG');
   print('Employee name1 is ${employee.getName()}');
@@ -24,13 +23,13 @@ void encapsulations(){
   vehicle.model = 'model1';
   final model = vehicle.model;
 }
+
 void constConstructors() {
   const a = Bike('name1', 'school', example: 'example1');
   var b = const Bike('name1', 'school', example: 'example1');
-  print('a: ${a.hashCode} b: ${b
-      .hashCode}'); // if Bike is const then same else different
+  print(
+      'a: ${a.hashCode} b: ${b.hashCode}'); // if Bike is const then same else different
   print('a == b: ${a == b}'); // if Bike is const then true else false
-
 }
 
 void carExample() {
@@ -156,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage>
                 } else if (snapshot.hasData) {
                   // If the Future is complete and data is available, display the battery level.
                   int batteryLevel = snapshot.data
-                  as int; // Assuming the battery level is an integer.
+                      as int; // Assuming the battery level is an integer.
                   return Text('Battery level: $batteryLevel');
                 } else {
                   // Handle other ConnectionState states if needed.

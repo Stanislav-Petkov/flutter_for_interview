@@ -50,15 +50,14 @@ class StatelessColorfulTile1 extends StatefulWidget {
 
 class _StatelessColorfulTile1State extends State<StatelessColorfulTile1> {
   final Color color1 = Colors.green;
-@override
+  @override
   void initState() {
-  if(mounted) {
-    setState(() {
-
-    });
-  }
+    if (mounted) {
+      setState(() {});
+    }
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(

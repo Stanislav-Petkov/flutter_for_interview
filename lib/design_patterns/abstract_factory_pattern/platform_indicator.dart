@@ -7,8 +7,8 @@ abstract class PlatformIndicator {
   Widget build();
 
   /// factory method
-  factory PlatformIndicator(TargetPlatform platform){
-    switch(platform){
+  factory PlatformIndicator(TargetPlatform platform) {
+    switch (platform) {
       case TargetPlatform.android:
         return AndroidIndicator();
       case TargetPlatform.iOS:
@@ -17,24 +17,28 @@ abstract class PlatformIndicator {
         return IOSIndicator();
     }
   }
-
 }
- class AndroidIndicator implements PlatformIndicator{
+
+class AndroidIndicator implements PlatformIndicator {
   @override
   Widget build() {
-    return CircularProgressIndicator(color: color(),);
+    return CircularProgressIndicator(
+      color: color(),
+    );
   }
- @override
+
+  @override
   Color color() {
     return Colors.blue;
   }
 }
 
-class IOSIndicator implements PlatformIndicator{
+class IOSIndicator implements PlatformIndicator {
   @override
   Widget build() {
     return const CupertinoActivityIndicator();
   }
+
   @override
   Color color() {
     return Colors.red;

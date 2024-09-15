@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-abstract class PlatformButton{
+abstract class PlatformButton {
   Widget build(VoidCallback onPressed, Widget child);
 
-  factory PlatformButton(TargetPlatform platform){
-    switch(platform){
+  factory PlatformButton(TargetPlatform platform) {
+    switch (platform) {
       case TargetPlatform.android:
         return AndroidButton();
       case TargetPlatform.iOS:
@@ -13,18 +13,17 @@ abstract class PlatformButton{
       default:
         return AndroidButton();
     }
-
   }
 }
 
-class AndroidButton implements PlatformButton{
+class AndroidButton implements PlatformButton {
   @override
   Widget build(VoidCallback onPressed, Widget child) {
     return ElevatedButton(onPressed: onPressed, child: child);
   }
 }
 
-class IOSButton implements PlatformButton{
+class IOSButton implements PlatformButton {
   @override
   Widget build(VoidCallback onPressed, Widget child) {
     return CupertinoButton(onPressed: onPressed, child: child);

@@ -2,12 +2,11 @@
 
 class Car {
   // Car(this.name);
-  Car(this.name1,{required this.example}){
+  Car(this.name1, {required this.example}) {
     school = 'school';
   }
 
-  Car.withoutName(this.example,this.name1);
-
+  Car.withoutName(this.example, this.name1);
 
   String example;
   String? school;

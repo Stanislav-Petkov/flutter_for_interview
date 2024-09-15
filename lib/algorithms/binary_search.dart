@@ -1,23 +1,24 @@
-class Solution{
-   static bool binarySearchRecursive(List<int> array, int x, int left, int right){
+class Solution {
+  static bool binarySearchRecursive(
+      List<int> array, int x, int left, int right) {
     print('called $left $right');
-     if(left > right){
+    if (left > right) {
       return false;
     }
     int mid = (left + right) ~/ 2;
-    if(array[mid] == x){
+    if (array[mid] == x) {
       return true;
-    }else if(x < array[mid]){
+    } else if (x < array[mid]) {
       return binarySearchRecursive(array, x, left, mid - 1);
-    }else{
+    } else {
       return binarySearchRecursive(array, x, mid + 1, right);
     }
   }
 }
-void main(){
+
+void main() {
   // binary search algorithm
-var list = [1,2,3,4,5,6,7,8,9,10];
-  var t  = Solution.binarySearchRecursive(list, 1, 0, list.length-1);
+  var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var t = Solution.binarySearchRecursive(list, 1, 0, list.length - 1);
   print(t);
 }
-

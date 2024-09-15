@@ -39,7 +39,6 @@ void main() {
   Point p = Point.fromJson({'x': 1, 'y': 2});
   print('Point: (${p.x}, ${p.y})');
 
-
   print('------- const constructor ------------');
 
   const c = ImmutablePoint(0, 0);
@@ -63,8 +62,6 @@ void main() {
   assert(p1 != p3);
   print('${p1.hashCode} ${p2.hashCode} ${p3.hashCode}');
   print('${p1.hashCode == p2.hashCode} ${p1 == p2} ${p1 != p3}');
-
-
 }
 
 class Vector2d {
@@ -99,7 +96,6 @@ class Point {
   double y;
 }
 
-
 // const constructor
 class ImmutablePoint {
   static const ImmutablePoint origin = ImmutablePoint(0, 0);
@@ -109,7 +105,6 @@ class ImmutablePoint {
   const ImmutablePoint(this.x, this.y);
 }
 
-
 class Logger {
   final String name;
   bool mute = false;
@@ -117,7 +112,6 @@ class Logger {
   // _cache is library-private, thanks to
   // the _ in front of its name.
   static final Map<String, Logger> _cache = <String, Logger>{};
-
 
   factory Logger(String name) {
     return _cache.putIfAbsent(name, () => Logger._internal(name));
@@ -135,14 +129,14 @@ class Logger {
 }
 
 class Animal {
-  void chase(Animal x) {  }
+  void chase(Animal x) {}
 }
 
-class Mouse extends Animal {  }
+class Mouse extends Animal {}
 
 class Cat extends Animal {
   @override
-  void chase( covariant Mouse x) {  }
+  void chase(covariant Mouse x) {}
 }
 
 // Override hashCode and ==
@@ -165,4 +159,3 @@ class PersonA {
         other.lastName == lastName;
   }
 }
-

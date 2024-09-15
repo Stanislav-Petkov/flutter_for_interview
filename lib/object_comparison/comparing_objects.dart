@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 void main() {
-
   /// region Immutability-------------------------------------------------------------------
 
   //String Immutability:
@@ -22,7 +21,7 @@ void main() {
   // unmodifiableList.add(8);//throws an error
   print(unmodifiableList); //throws an error
 
-///endregion -------------------------------------------------------------------
+  ///endregion -------------------------------------------------------------------
 
   var str1 = 'This is a string';
   str1 = 'This is a new string';
@@ -50,7 +49,6 @@ void main() {
   print('s1 == s2: ${s1 == s2}');
   print('s1 == s3: ${s1 == s3}');
 
-
   print('identical(i1, i2): ${identical(i1, i2)}');
   print('identical(i1, i3): ${identical(i1, i3)}');
   print('identical(d1, d2): ${identical(d1, d2)}');
@@ -63,7 +61,8 @@ void main() {
   var o = Object();
   var isIdentical = identical(o, Object()); // false, different objects.
   isIdentical = identical(o, o); // true, same object.
-  isIdentical = identical(const Object(), const Object()); // true, const canonicalizes.
+  isIdentical =
+      identical(const Object(), const Object()); // true, const canonicalizes.
   isIdentical = identical([1], [1]); // false, different new objects.
   isIdentical = identical(const [1], const [1]); // true.
   isIdentical = identical(const [1], const [2]); // false.
@@ -83,8 +82,8 @@ void main() {
 
   print('===============================================');
 
-  const Item itemA1 =  Item(name: 'A', price: 100);
-  const Item itemA2 =  Item(name: 'A', price: 100);
+  const Item itemA1 = Item(name: 'A', price: 100);
+  const Item itemA2 = Item(name: 'A', price: 100);
   const Item itemA3 = itemA1;
   const Item itemB = Item(name: 'B', price: 200);
 
@@ -96,22 +95,21 @@ void main() {
   print('identical(itemA1, itemA3): ${identical(itemA1, itemA3)}');
   print('identical(itemA1, itemB): ${identical(itemA1, itemB)}');
 
-
   print('CONST ===============================================');
-  const Item itemA4 =  Item(name: 'A', price: 100);
-  const Item itemA5 =  Item(name: 'A', price: 100);
+  const Item itemA4 = Item(name: 'A', price: 100);
+  const Item itemA5 = Item(name: 'A', price: 100);
 
   print('itemA4 == itemA5: ${itemA4 == itemA5}');
   print('identical(itemA4, itemA5): ${identical(itemA4, itemA5)}');
 
-  print('Item 2 overriden methods ===============================================');
+  print(
+      'Item 2 overriden methods ===============================================');
 
-  const Item2 itemA12 =   Item2(name: 'A', price: 100);
-  const Item2 itemA22 =   Item2(name: 'A', price: 100);
+  const Item2 itemA12 = Item2(name: 'A', price: 100);
+  const Item2 itemA22 = Item2(name: 'A', price: 100);
 
   print('itemA12 == itemA22: ${itemA12 == itemA22}');
   print('identical(itemA12, itemA22): ${identical(itemA12, itemA22)}');
-
 }
 
 class Item {
@@ -139,11 +137,10 @@ class Item2 {
       return true;
     }
 
-    return (other is Item
-        && other.runtimeType == runtimeType
-        && other.name == name
-        && other.price == price
-    );
+    return (other is Item &&
+        other.runtimeType == runtimeType &&
+        other.name == name &&
+        other.price == price);
   }
 
   @override

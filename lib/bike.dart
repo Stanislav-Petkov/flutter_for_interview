@@ -1,16 +1,21 @@
 /// Dart const constructor
 
-class T{
+class T {
   T(this.name);
   final String name;
-  void dis(){
+  void dis() {
     print('TTT: $name');
   }
 }
-class Bike {
-   const Bike(this.name1, this.school,{required this.example});
 
-   Bike.withoutName(this.example,this.name1, this.school,);
+class Bike {
+  const Bike(this.name1, this.school, {required this.example});
+
+  Bike.withoutName(
+    this.example,
+    this.name1,
+    this.school,
+  );
 
   final String example;
   final String? school;
@@ -35,7 +40,8 @@ class Bike {
     print(' _counter is $_counter');
   }
 }
-void main(){
+
+void main() {
   var t = T('FF');
   t.dis();
 }
