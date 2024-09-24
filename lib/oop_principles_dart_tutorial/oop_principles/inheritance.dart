@@ -2,17 +2,20 @@ mixin class Test {}
 
 class Animal {
   String name;
+
   Animal(this.name);
+
   void chase(covariant Animal animal) {
-    print("name is $name ,type is ${animal.runtimeType}");
+    print("Animal name is $name ,type is ${animal.runtimeType}");
   }
 }
 
 class Bird extends Animal {
   Bird(String name) : super(name);
+
   @override
   void chase(Animal animal) {
-    print("name is $name ,type is ${animal.runtimeType}");
+    print("Bird name is $name ,type is ${animal.runtimeType}");
   }
 
   void fly() {
@@ -20,12 +23,14 @@ class Bird extends Animal {
   }
 }
 
+//Each class definition can have at most one extends clause.
+
 class Cat extends Animal {
   Cat(String name) : super(name);
 
   @override
   void chase(Bird animal) {
-    print("name is $name ,type is ${animal.runtimeType}");
+    print("Cat name is $name ,type is ${animal.runtimeType}");
   }
 
   void meow() {
@@ -38,6 +43,7 @@ class Cat extends Animal {
 //   Bird bird = Bird("bird");
 //   cat.chase(bird);
 // }
+
 class Other {
   String? other;
 }
@@ -84,6 +90,7 @@ void main() {
 abstract class ParentClass {
   // Parent class code
   void t();
+
   void g() {}
 }
 
@@ -98,5 +105,11 @@ class ChildClass implements ParentClass {
     // TODO: implement t
   }
 
-  // Child class code
+// Child class code
 }
+
+
+// class T extends Cat, Bird {// NOT POSSIBLE
+// Only single inheritance is possible
+//   T(String name) : super(name);
+// }
