@@ -79,6 +79,24 @@ and unit/widget and integration testing
 69. Does the main thread bloc when the user is waiting for
  something from the backend
 70. What is the bloc pattern
+71. code quality tools
+
+71. code quality tools
+Code Quality Tools
+Static Analysis:
+Use 'dart analyze' to detect issues in your code (e.g., unused imports,
+potential errors).
+Add it as part of your CI/CD pipeline for automatic checks.
+Linting:
+Use the 'flutter_lints' or 'pedantic' package for style guidelines
+and catching common errors.
+Customize the .analysis_options.yaml file to enforce consistent
+coding standards.
+Code Formatting:
+Use 'dart format' to ensure your code follows a consistent style.
+Code Coverage:
+Use 'flutter test --coverage' to check how much of your code
+ is covered by tests.
 
 70. What is the bloc pattern
 https://www.mitrais.com/news-updates/getting-started-with-flutter-bloc-pattern/
@@ -133,23 +151,93 @@ linked above.
 https://api.dart.dev/stable/2.3.1/dart-isolate/Isolate-class.html
 
 67. Are isolates using different areas of the  memory?
-
+Yes, isolates in Dart use different areas of memory.
+Each isolate has its own memory heap and does not share
+memory with other isolates. This isolation ensures that
+there is no need for locks or other synchronization mechanisms,
+making isolates a safe way to run concurrent code.
 
 66. Is dart single threaded language.
+Yes, Dart is a single-threaded language. It uses an event
+loop and asynchronous programming to handle tasks that
+might block the main thread, such as I/O operations.
+For parallelism, Dart uses isolates, which are separate memory heaps
+that run in parallel and do not share memory.
 
 65. rxdart
 have you used rxdart?
 can we use it to implement a bloc as in bloc library?
-
+Yes, you can use rxdart to implement a BLoC (Business Logic Component)
+pattern similar to the bloc library. Below is a step-by-step plan
+and the corresponding code to implement a simple BLoC using rxdart.
+Plan
+Create a BLoC Class: Define a class that will manage the state and
+business logic.
+Define Input and Output Streams: Use rxdart to create StreamController
+for input and output.
+Expose Streams: Expose the streams to be used by the UI.
+Handle Business Logic: Implement methods to handle business logic
+and update the streams.
+Dispose: Ensure to close the streams to avoid memory leaks.
 
 
 64. First class level functions
-
+In Dart, functions are first-class citizens, meaning they can be
+ assigned to variables, passed as arguments to other functions,
+  and returned from other functions. This allows for a high degree
+   of flexibility in how functions are used and manipulated.
+Key Points
+Assigning Functions to Variables: You can assign a function to a variable.
+Passing Functions as Arguments: Functions can be passed as
+arguments to other functions.
+Returning Functions from Functions: Functions can return other functions.
 
 63. ffi
+Dart FFI (Foreign Function Interface) allows you to call native
+C APIs from Dart code. This is useful for integrating with existing
+native libraries or for
+performance-critical code that needs to be written in C or C++.
 
+https://en.wikipedia.org/wiki/Foreign_function_interface
+A foreign function interface (FFI) is a mechanism by which a
+program written in one programming language can call routines
+or make use of services written or compiled in another one.
+An FFI is often used in contexts where
+calls are made into a binary dynamic-link library.
+
+Used to:
+How to call a C function with no arguments and no return value.
+
+When to Use Dart FFI:
+Performance-Critical Code: When you need to execute
+performance-intensive operations that are better handled in C or C++.
+Existing Native Libraries: When you want to leverage
+existing native libraries without rewriting them in Dart.
+Platform-Specific Features: When you need to access
+ platform-specific features that are not available in Dart.
+Use Cases:
+Image Processing: Using native libraries for image manipulation.
+Cryptography: Leveraging existing C libraries for
+cryptographic operations.
+Hardware Interaction: Interfacing with hardware
+components that have C/C++ drivers.
+Example:
+Add Dependencies: Add the ffi package to your pubspec.yaml.
+Create a C Library: Write and compile your C code.
+Define Dart Bindings: Use the ffi package to define
+Dart bindings for the C functions.
+Load the Library: Load the shared library in Dart
+and call the functions.
 
 62. Github Actions
+https://github.com/features/actions
+https://docs.github.com/en/actions/writing-workflows/quickstart
+GitHub Actions is a continuous integration and continuous
+delivery (CI/CD) platform that allows you to automate your build,
+ test, and deployment pipeline. You can create workflows that
+ run tests whenever you push a change to your repository, or
+ that deploy merged pull requests to production.
+
 
 
 61 Clean architecture in flutter

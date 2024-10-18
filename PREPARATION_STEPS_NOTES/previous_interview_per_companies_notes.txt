@@ -125,3 +125,100 @@ chetvurtuk 12:30
 
 
 ======================================
+
+penka zyapkova minds 18.10.24
+
+kompaniq podbor
+1 poziciq tursqt za Orbis
+
+klienti
+chujdestranni s predstavitelstvo
+full time , trudov dogovor ,
+malko sa kompaniite v momenta
+senior pone 3 godini opit min s
+kompaniqta orbis ne sa produktov tip
+nemska kompaniq btob za prodajba na edro
+ongoing ne e za opredelo vreme
+za imat osis v sofia business park
+stupki dva etapa
+razgovor opoznavatelen
+detaili za proekta
+interview s klienta
+technichesko interview
+70 choveka kompaniq
+50rnd
+3ma flutter pone 1 tursqt oshte za nemski proekt klient
+da i pratq aktualno cv
+ako iskam
+
+4000 - 4300 neto kazvam che iskam
+komunikacia na angliiski
+
+fomalno
+
+i da ne produljim da pratq cv
+
+mid developers s moq staj iskat 4.5-5 net
+
+senior 5 - 5.5
+
+v momenta  e ogranicheno turseneto za flutter i na pazara ima mnogo sukrashteniq
+
+
+
+job description:
+
+Mid Mobile Developer (Flutter)
+For us, people make all the difference, that’s why at ORBIS we are focused on expertise and talent development. We support all initiatives that will improve the developer experience and encourage every team member to expand their skills and responsibilities into their desired role. Our team and our spirit are the foundation of our success and the key to our future. They don't make them like us anymore. See for yourself when you become one of the skilful mobile developers in our team.
+
+
+What do we offer:
+
+• Simple recruitment process – as well as quick feedback
+• Highly competitive salary – keep reading, there’s more
+• Tailor-made bonus system – we like celebrating your achievements
+• Loyalty bonuses – enjoy various benefits ranging from a phone to a car
+• Private health insurance and glasses – because that’s a must
+• Flexible working time – for the early birds and the night owls
+• Work from home or anywhere else you like – it’s the results that matter, not the location
+• Fully remote position with office space if you need it – our main office in Burgas is well-equipped and with a sea view; you’re welcome to use office spaces in Business Park Sofia too
+• Team-building events – by sea, in the mountain, anywhere we can have fun
+
+
+What you’ll be doing:
+
+• Contribute to the development and maintenance of cross-platform mobile applications using Flutter
+• Collaborate with product managers, UI/UX designers, and back-end developers to build intuitive and user-friendly applications
+• Assist in designing mobile applications with scalable and maintainable codebases
+• Participate in code reviews and support junior developers by sharing knowledge and best practices
+• Optimize application performance to improve responsiveness and user experience
+• Integrate third-party services, APIs, and libraries into mobile applications
+• Keep up-to-date with the latest Flutter trends and best practices to improve development processes
+• Work within Agile frameworks, such as Scrum or Kanban, to manage tasks and project timelines
+• Ensure code quality and functionality through unit testing, integration testing, and using code quality tools
+
+
+Skills & Qualifications:
+
+• 3-5 years of mobile development experience, with at least 2 years of hands-on experience with Flutter and Dart
+• Solid understanding of mobile architecture and design patterns (e.g., MVC, MVVM, BLoC)
+• Experience working with RESTful APIs, Firebase, and third-party libraries
+• Familiarity with native Android/iOS development is a plus
+• Experience in deploying applications to both the Apple App Store and Google Play Store
+• Understanding of state management solutions (e.g., Provider, Riverpod, Redux)
+• Basic knowledge of CI/CD pipelines and automated testing for Flutter apps
+• Understanding of Agile methodologies and tools such as JIRA, Trello
+• Strong problem-solving skills and a willingness to learn
+• Good communication and collaboration skills within a team environment
+
+Preferred Qualifications:
+
+• Experience working with version control tools (e.g., Git)
+• Familiarity with back-end technologies and cloud platforms (e.g., Firebase, AWS)
+• Experience with performance tuning and app debugging
+• Contributions to open-source Flutter projects or involvement in the Flutter community
+
+
+Does it sound like we’re a good match? If so, feel free to apply with your CV and GitHub profile. *Only shortlisted candidates will be contacted.
+
+============================================================
