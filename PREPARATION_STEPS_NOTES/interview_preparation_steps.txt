@@ -63,7 +63,198 @@ and unit/widget and integration testing
 53. BuildContext
 54. Garbage collection
 55. Asynchronous programming vs parallelism
-56. Good programming practices - kiss, dry, yagni, composition over inheritance
+56. Provider as state management solution
+57. Familiarity with GraphQL
+58 App Architecture
+59 Dependency injection
+60. Lifecycle method of Statefull WIdget
+61 Clean architecture in flutter
+62. Github Actions
+63. ffi
+64. First class level functions
+65. rxdart
+66. Is dart single threaded language.
+67. Are isolates using different areas of the  memory?
+68. How can isolates interact with each other
+69. Does the main thread bloc when the user is waiting for
+ something from the backend
+70. What is the bloc pattern
+71. code quality tools
+
+71. code quality tools
+Code Quality Tools
+Static Analysis:
+Use 'dart analyze' to detect issues in your code (e.g., unused imports,
+potential errors).
+Add it as part of your CI/CD pipeline for automatic checks.
+Linting:
+Use the 'flutter_lints' or 'pedantic' package for style guidelines
+and catching common errors.
+Customize the .analysis_options.yaml file to enforce consistent
+coding standards.
+Code Formatting:
+Use 'dart format' to ensure your code follows a consistent style.
+Code Coverage:
+Use 'flutter test --coverage' to check how much of your code
+ is covered by tests.
+
+70. What is the bloc pattern
+https://www.mitrais.com/news-updates/getting-started-with-flutter-bloc-pattern/
+Bloc is a design pattern created by Google to help separate
+business logic from the presentation layer and enable a
+developer to reuse code more efficiently.
+BLoC (Business Logic Component) is a popular architectural pattern
+in the Flutter community for building scalable and maintainable
+apps. It provides a clear separation of concerns between
+the user interface and business logic, making the codebase
+ more organized and easy to understand.
+
+https://www.flutterclutter.dev/flutter/basics/what-is-the-bloc-pattern/2021/2084/
+Difference between the pattern and the package
+Although the BLoC pattern is one of the officially recommended state
+management approaches, there is no direct native support from Flutter.
+Instead, you either implement it yourself or go for a package that
+has already implemented all the boiler plate code for you. This
+is where the bloc package comes into play. It provides
+all core classes that are necessary to use the pattern.
+
+69. Does the main thread bloc when the user is waiting for
+ something from the backend
+No, the main thread does not block when the user is waiting for
+something from the backend in Flutter. This is because network
+requests are handled asynchronously.  When you make a network
+request in Flutter (or any other Dart code), it's done via Dart's
+Future mechanism, which uses non-blocking I/O. This means that the
+ main Dart thread can continue doing other work, like responding
+ to user interactions,
+while the network request is being processed.
+
+- https://stackoverflow.com/questions/64520013/dart-future-blocking-main-thread
+As Dart uses an event loop, all code (synchronous and asynchronous)
+will simply be run on the same isolate (think thread in other languages
+as an analogy), just at different points in time. As such, when
+your process method is dequeued and executed, it will block the
+thread and cause frames to be dropped due to a longer execution
+time, despite being asynchronous. The optimal solution to the
+problem is to spawn another isolate in a new thread, and carry out
+the computation there. Flutter provides a convenience method for this
+exact use case, called compute. It takes a top-level function (not in
+a class, nor anonymous) that can have a primitive type parameter
+(including Map and List) as an argument and will return at some point
+in the future. For more information on compute, see its documentation
+linked above.
+
+
+- https://www.youtube.com/watch?v=vl_AaCgudcY
+
+68. How can isolates interact with each other
+https://api.dart.dev/stable/2.3.1/dart-isolate/Isolate-class.html
+
+67. Are isolates using different areas of the  memory?
+Yes, isolates in Dart use different areas of memory.
+Each isolate has its own memory heap and does not share
+memory with other isolates. This isolation ensures that
+there is no need for locks or other synchronization mechanisms,
+making isolates a safe way to run concurrent code.
+
+66. Is dart single threaded language.
+Yes, Dart is a single-threaded language. It uses an event
+loop and asynchronous programming to handle tasks that
+might block the main thread, such as I/O operations.
+For parallelism, Dart uses isolates, which are separate memory heaps
+that run in parallel and do not share memory.
+
+65. rxdart
+have you used rxdart?
+can we use it to implement a bloc as in bloc library?
+Yes, you can use rxdart to implement a BLoC (Business Logic Component)
+pattern similar to the bloc library. Below is a step-by-step plan
+and the corresponding code to implement a simple BLoC using rxdart.
+Plan
+Create a BLoC Class: Define a class that will manage the state and
+business logic.
+Define Input and Output Streams: Use rxdart to create StreamController
+for input and output.
+Expose Streams: Expose the streams to be used by the UI.
+Handle Business Logic: Implement methods to handle business logic
+and update the streams.
+Dispose: Ensure to close the streams to avoid memory leaks.
+
+
+64. First class level functions
+In Dart, functions are first-class citizens, meaning they can be
+ assigned to variables, passed as arguments to other functions,
+  and returned from other functions. This allows for a high degree
+   of flexibility in how functions are used and manipulated.
+Key Points
+Assigning Functions to Variables: You can assign a function to a variable.
+Passing Functions as Arguments: Functions can be passed as
+arguments to other functions.
+Returning Functions from Functions: Functions can return other functions.
+
+63. ffi
+Dart FFI (Foreign Function Interface) allows you to call native
+C APIs from Dart code. This is useful for integrating with existing
+native libraries or for
+performance-critical code that needs to be written in C or C++.
+
+https://en.wikipedia.org/wiki/Foreign_function_interface
+A foreign function interface (FFI) is a mechanism by which a
+program written in one programming language can call routines
+or make use of services written or compiled in another one.
+An FFI is often used in contexts where
+calls are made into a binary dynamic-link library.
+
+Used to:
+How to call a C function with no arguments and no return value.
+
+When to Use Dart FFI:
+Performance-Critical Code: When you need to execute
+performance-intensive operations that are better handled in C or C++.
+Existing Native Libraries: When you want to leverage
+existing native libraries without rewriting them in Dart.
+Platform-Specific Features: When you need to access
+ platform-specific features that are not available in Dart.
+Use Cases:
+Image Processing: Using native libraries for image manipulation.
+Cryptography: Leveraging existing C libraries for
+cryptographic operations.
+Hardware Interaction: Interfacing with hardware
+components that have C/C++ drivers.
+Example:
+Add Dependencies: Add the ffi package to your pubspec.yaml.
+Create a C Library: Write and compile your C code.
+Define Dart Bindings: Use the ffi package to define
+Dart bindings for the C functions.
+Load the Library: Load the shared library in Dart
+and call the functions.
+
+62. Github Actions
+https://github.com/features/actions
+https://docs.github.com/en/actions/writing-workflows/quickstart
+GitHub Actions is a continuous integration and continuous
+delivery (CI/CD) platform that allows you to automate your build,
+ test, and deployment pipeline. You can create workflows that
+ run tests whenever you push a change to your repository, or
+ that deploy merged pull requests to production.
+
+
+
+61 Clean architecture in flutter
+https://medium.com/@yamen.abd98/clean-architecture-in-flutter-mvvm-bloc-dio-79b1615530e1
+
+60. Lifecycle method of Statefull WIdget
+https://medium.com/@hadiyaaamir222/lifecycle-of-a-stateful-widget-aece2d56c946
+
+
+59 Dependency injection
+Dependency injection plays a crucial role when working with
+different environments in a Flutter application. It allows us to
+ define different implementations of the same class for different
+  environments, such as development, staging, and production.
+
+
+56. https://pub.dev/packages/provider56. Good programming practices - kiss, dry, yagni, composition over inheritance
 57. Good programming practices - Law of demeter(Principle of Least Knowledge), DESIGN patterns,
 tda - tell don't ask
 
@@ -384,8 +575,21 @@ error 400 are such that happen from the client side and we should not retry
 the request if such error happen, but search for the cause of the error
 in the app 
 
+1xx (Informational): The request was received, continuing process.
+2xx (Successful): The request was successfully received, understood,
+ and accepted.
+3xx (Redirection): Further action needs to be taken in order to
+ complete the request.
+4xx (Client Error): The request contains bad syntax or cannot be
+ fulfilled.
+ 400 Bad Request: This status code indicates that the server
+ could not understand the request due to invalid syntax.
+5xx (Server Error): The server failed to fulfill an apparently
+valid request.
+
 40. explain mapping dto
-we should have one model for the incoming data , it is better to have nullable fields
+we should have one model for the incoming data , it is better to
+ have nullable fields
 for it if the response changes
 class UserDto {
   final String? name;
@@ -422,7 +626,8 @@ reduce app size memory:
  - don't pass long lists into constructor
  
  - setup code linting rules
- - single responsibility for the widgets - this makes it easier to refactor and understand
+ - single responsibility for the widgets - this makes it easier
+  to refactor and understand
  - keep widgets small 
  - setup ci/cd from beginning
  - do not hard code colors and style, but use a theme
@@ -448,7 +653,7 @@ https://www.darttutorial.org/dart-tutorial/dart-inheritance/
 15.2 Abstraction
 - abstraction concept is achieved by the 'implements' keyword
 - abstract methods can be declared in abstract class
-- abstract class is used as a constract, which should be implemented
+- abstract class is used as a contract, which should be implemented
 and all of its abstract methods should be overridden and implemented, 
 with functionality. The properties of the abstract class also should
  be implemented
@@ -580,6 +785,17 @@ https://codewithandrea.com/articles/flutter-repository-pattern/
 
 
 ============
+58 App Architecture
+
+App architecture
+Domain layer:
+https://codewithandrea.com/articles/flutter-app-architecture-domain-model/
+Application layer:
+https://codewithandrea.com/articles/flutter-app-architecture-application-layer/
+Presentation layer:
+https://codewithandrea.com/articles/flutter-presentation-layer/
+
+=====================
 
 
 30 solid:
@@ -594,8 +810,10 @@ It should know and understand only how this thing work.
 - 2. Open closed principle - every class or method should be open for extension, but 
 closed for modification
 When we want new functionality to a class, instead of adding it to the class directly
-we use the decorator pattern, which implements the same interface, which the class is implenting
-and add the functionality there . In this case, we do not break the unit tests writen to the
+we use the decorator pattern, which implements the same interface,
+which the class is implementing
+and add the functionality there . In this case, we do not break the unit tests
+ written to the
 initial class methods. And additional consequences could arise, if we change existing
 methods
 - Also to add functionality we can use extension methods on a class and we will not change
@@ -603,7 +821,7 @@ the file in this way
 - Using inheritance also a class functionality can be extended
 
 - 3. Liskov substitution :
-a subtipe should be replacable by parent type
+a subtipe should be replaceable by parent type
 The child class, should be able to do everything that the parent class does
 	Human
     |    |
@@ -619,11 +837,11 @@ we use an abstract repository with a log ot methods , which are then
  
 To avoid this : The gist of this principle is: you should create
  small interfaces with minimal methods. Or split the abstract repository method in several
- absttract repositories and implement only the one which is needed 
+ abstract repositories and implement only the one which is needed
 https://www.topcoder.com/thrive/articles/solid-principles-in-dart
 
 
-- dependency inversion:
+- 5. Dependency inversion:
 Favor abstraction over implementation 
 High level modules, should not depend on low level modules without an abstraction
 
@@ -648,9 +866,9 @@ null aware operators ?., ??, ??=, ...?
 32. 
 compilers
 just in time compiler - 
-take new code and inject it into the old code, which allows  hot reload, hot restard
+take new code and inject it into the old code, which allows  hot reload, hot restart
 of flutter. With jit you update only this part of the application that you need.
-Ahead of time compiler - creates production ready code with one outcome which a convertion of
+Ahead of time compiler - creates production ready code with one outcome which a conversion of
 the dart language to something that the computer understands. We achieve performance 
 boost. With jit we update the code on the runtime.
 
@@ -678,7 +896,7 @@ there will be no error compared to calling it in initState.
 - didUpdateWidget
 Called whenever the widget configuration changes. Such as passing 
 variables to the constructor. If we pass a duration for a controller
-then it needs to update the duration of the controller and the mehtod is called
+then it needs to update the duration of the controller and the method is called
 
 -deactivate
 Called when this object is removed from the tree.
@@ -777,16 +995,26 @@ achieven great UI quickly
 A: Stateful and Stateless
 
 - What is the difference between StatefullWidget and StatelessWidget?
-A: Statefull widgetts hold state of the sidget and can be rebuild when
-state changes. Whereas Stateless widgets are build only when it is 
-created or the parent changes.
+A: Statefull widgetts hold state of the widget and can be rebuild when
+state changes.
+In Stateless widget The build method of a stateless widget is
+typically only called in three situations:
+the first time the widget is inserted in the tree,
+when the widget's parent changes its configuration (see Element.rebuild),
+and when an InheritedWidget it depends on changes.
+Read this for Stateless widget:
+https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html#:~:text=The%20build%20method%20of%20a,InheritedWidget%20it%20depends%20on%20changes.
+
+Statefull Widget:
+https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html
+
 
 - How to access the (screen size /  pixel density / aspect ration )in Flutter?
 A: We can access screen size and other properties like pixel density, aspect
 ration etc with help of MediaQuery. syntact: MediaQuery.of(context).size.width
 
 - What is provide and how it works?
-A: Provie is a simple way for state management, it works on the concept
+A: Provide is a simple way for state management, it works on the concept
 of PUB-SUB, which means there is  one provide and multiple subscribers,
 which are called consumers here. Whenever there is a chagne, with
 notifyChangeListener it will update all the consumers.
@@ -872,7 +1100,7 @@ beginning and the end of the animation, and the framework itself calculates how
 to transition the widget to fulfill values.
 
 - What is pubspec.yaml?
-A: It allows you to defin the packages your app relies on, declare assets like
+A: It allows you to define the packages your app relies on, declare assets like
 images, video. It allows you to set contraints for your app.
 
 - What is the difference between NetworkImage and Image.network()?

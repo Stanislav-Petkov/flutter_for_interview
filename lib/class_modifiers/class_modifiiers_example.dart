@@ -21,8 +21,9 @@ void main() {
       print('cat');
   }
 
-  // var t = Animal(); // abstract class cannot be instantiated
-  // var t1 = Animal1();// sealed class is implicitly abstract
+  // var t1 = Animal1();// abstract class class cannot be instantiated
+
+  // var t = Animal(); // sealed class is implicitly abstract
 
   var c = CatFinal(); // final class can be instantiated
 
@@ -74,8 +75,18 @@ base class CatBase {
   }
 }
 
+// Not Possible The type 'CatBase3' must be 'base', 'final' or 'sealed'
+// because the supertype 'CatBase' is 'base'. (Documentation)
+// class CatBase3 extends CatBase {}
+
+// Not Possible The type 'CatBase4' must be 'base', 'final' or 'sealed' because the
+// supertype 'CatBase' is 'base'. (Documentation)
+// class CatBase4 implements CatBase {}
+
 // class extending a base class , must be base, final or sealed
 base class CatBase1 extends CatBase {}
+
+sealed class CatBaseSealed extends CatBase {}
 
 // the CatBase base class constructor is called also
 final class CatFinal1 extends CatBase {}
