@@ -1,0 +1,76 @@
+TODO general knowledge questions.
+
+
+https://www.youtube.com/watch?v=oKQcDjxsOvg&ab_channel=TravisMedia
+
+1 . How do you react to stakeholder questions, changing the requirements of the project?
+- I am not agreeing to everything. I form an opinion about the topic 
+and provide alternative solutions
+if I do not think that it is not a good idea to immplement the changes from the requirements.  
+If the new feature (requirement) change does not fit well with the already implemented features
+I speak up about that.
+Form opinion about industry wide tools, like flutter packages.
+
+
+Interviewer Question:
+"How do you handle situations where stakeholders request changes to project requirements?"
+
+Senior Developer Answer:
+"I don't simply agree to every request—I carefully evaluate the impact of 
+the change. If I believe a new requirement doesn't align well with the existing
+architecture or could introduce technical debt, I provide alternative solutions
+backed by reasoning. My goal is to balance business needs with technical 
+feasibility. Additionally, I stay informed about industry tools, such as Flutter 
+packages, to suggest the best solutions when changes are needed. If a proposed 
+feature conflicts with existing functionality, I communicate the risks and work 
+with the team to find the best approach. Ultimately, I ensure that any decision
+aligns with both technical best practices and business goals."
+
+Lesson 1.
+Interviewer: "What are your thoughts on Scrum? Do you think it’s the
+best approach for software development?"
+Senior Developer: "Scrum is a solid framework for managing projects, but it has its 
+limitations. While it encourages collaboration and iterative development, it can sometimes 
+feel rigid, especially when teams focus more on process than outcomes. For example, I’ve
+seen cases where excessive ceremonies slow down progress rather than helping it. In 
+some situations, a more flexible approach like Kanban or even a hybrid model works 
+better. The key is adapting the methodology to fit the team rather than forcing the
+team to fit the methodology. What’s your experience with Scrum in this organization?"
+
+Lesson 2.
+TODO: Learn about your language design patterns.
+TODO: Know your language well.
+Know the quirks of the language.
+TODO: read a book about your language.
+TODO: have an opinion about design patterns.
+TODO read the book 'how to win friends and influence people'.
+TODO: learn everything specifically for any programming language from https://roadmap.sh/flutter
+TODO: enhance your programming skills on https://leetcode.com/
+for example: https://leetcode.com/problems/merge-sorted-array/?envType=study-plan-v2&envId=top-interview-150
+
+Lesson 3: Attitude & Soft Skills Matter
+Interviewer: "Tell me about a time you worked with a difficult team member.
+ How did you handle it?"
+
+Senior Developer: "I once worked on a team where one developer was highly skilled
+but often dismissive of other team members' ideas. This created tension and slowed
+collaboration. Instead of confronting them directly, I started engaging them in 
+one-on-one discussions to understand their perspective. I also made a habit of 
+reinforcing good ideas from other team members during meetings to create a more 
+open and balanced discussion. Over time, this helped shift the team dynamic and 
+improved cooperation. I believe fostering a positive team culture is just as 
+important as writing good code. Has your team faced similar challenges?"
+
+Lesson 4: Coding Skills Are Still Essential
+Interviewer: "We value strong problem-solving skills. Can you walk me through 
+how you would optimize a function that processes a large dataset in Flutter?"
+
+Senior Developer: "Absolutely. The first step is understanding the dataset size
+and access patterns. If the function is reading data repeatedly from an API or 
+a database, I would implement caching to reduce redundant calls. If it involves
+heavy computation, I’d explore isolating the workload using Flutter’s compute() 
+function to avoid blocking the main thread. Additionally, I’d analyze whether we
+can process data lazily using streams instead of keeping everything in memory.
+If performance is still an issue, I’d profile the app using DevTools to pinpoint
+bottlenecks and optimize accordingly. Have you encountered performance challenges
+with large datasets in your Flutter applications?"

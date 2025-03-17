@@ -1,0 +1,131 @@
+Questions from hedgehog lab from Owain Brown
+https://theorg.com/org/hedgehog-lab/org-chart/owain-brown
+
+
+1. How do you not cause regression, which could slow down delivery on time
+and could break another stuff
+2. How do you approach modularization
+3. How do you manage clear separation
+4. Which state management solutions have you used, explain and compare several state manangements
+5. How do you manage scrollable elements
+6. What do you do when there are extended security requirements
+for an app for financial institution for example
+7. How do you optimize widget rebuilds
+8. How do you manage changes of requirements from a stackeholder?
+9. How do you make pr review?
+10. how do you handle critique?
+11. What do you do to understand the project when you first receive access to the code? 
+
+1. How do you prevent regressions that could slow down delivery and break existing functionality?
+Regression issues occur when new changes break existing functionality. To prevent this, use:
+1.1Automated Testing: I ensure comprehensive unit, widget, and integration tests using flutter_test and mockito or bloc_test for state management.
+1.2.CI/CD Pipelines: I implement CI/CD (e.g., GitHub Actions, Bitrise, Codemagic) to run automated tests before merging code.
+How CI/CD Prevents Regressions: 
+-Runs unit, widget, and integration tests on every commit.
+-Prevents broken code from being merged into the main branch.
+-Automates code quality checks (e.g., linting, static analysis).
+-Ensures every release builds successfully and meets requirements.
+-Automates deployment, reducing human errors.
+
+1.3.Feature Flags & Staged Rollouts: I use feature toggles to control new features in production and gradually roll them out to reduce risk.
+1.3.1.Remote Feature Flags (Firebase Remote Config)
+A better approach is using Firebase Remote Config, which allows dynamic feature toggles without requiring an app update.
+
+1.3.2.A Staged Rollout (Gradual Rollout) is a technique where you release a new feature to a small percentage of users first,
+then gradually increase exposure as you monitor performance.
+
+
+1.4.Code Reviews & Static Analysis: I enforce code reviews, along with tools like dart analyze and flutter_lints, to maintain code quality.
+Regression Testing Strategy: I ensure critical paths have UI/Golden tests to prevent unexpected UI changes.
+
+1.5. Monitory crashes
+Crash Monitoring with Firebase Crashlytics is an important part of preventing regressions, but
+it works after deployment, rather than proactively stopping regressions before release.
+How to Use Crashlytics Effectively
+Combine with Staged Rollouts – If a new version crashes for early adopters, you can pause the rollout before it affects more users.
+Set Up Alerts – Get notified immediately when new crashes appear.
+Monitor Trends – Look for increasing crash rates after deploying a feature.
+Use Breadcrumb Logging – Add FirebaseCrashlytics.instance.log("User tapped button") to track app behavior before crashes.
+Automate Issue Tracking – Integrate Crashlytics with Jira, Trello, or Slack to track and fix issues faster.
+
+------------
+
+2. How do you approach modularization?
+2.1Feature-Based Modules: I separate app functionalities into independent Dart packages (e.g., feature_auth, feature_dashboard).
+2.2.Clean Architecture: I follow simplified clean architecture with 3 layers: Presentation, Domain, Data, ensuring minimal coupling.
+2.3.Dependency Injection (DI): I use get_it or riverpod for DI, reducing dependencies between modules.
+Dependency Injection (DI) is a design pattern that helps manage dependencies by providing them from an external source rather than creating them inside a class. This reduces tight coupling between modules, making the code more scalable, maintainable, and testable.
+With DI classes are (Loosely Coupled)
+class AuthService {
+  final ApiClient apiClient;
+  AuthService(this.apiClient); // Dependency is injected
+}
+
+✅ Reduces direct dependencies → Classes do not create their dependencies manually.
+✅ Improves testability → Dependencies can be easily replaced with mocks in tests.
+✅ Enhances modularization → Features can be developed independently.
+✅ Supports Lazy Loading → Dependencies are created only when needed.
+
+2.4.Package & Plugin Separation: For reusable components, I create local or remote Dart packages instead of keeping everything in a monolith.
+2.5. Communication via Contracts: I ensure different modules communicate through abstract interfaces rather than concrete implementations.
+
+3. How do you manage clear separation in code?
+3.1.SOLID Principles: I structure code using SRP (Single Responsibility Principle) to avoid mixing concerns.
+Single Responsibility: A module should have one reason to change
+Open closed principle: A module should be open for extension, but closed for modificaiton
+Liskov substitution: Objects of a superclass shall be replaceable with objects of its subclasses without breaking the application.
+Interface segregation: "A class should not be forced to implement interfaces it does not use."
+Dependency inversion: High level modules should not depend on low level modules. Both should depend on abstractions.
+
+
+MVVM or Clean Architecture: I separate UI (Widgets), State Management (Controllers/ViewModels), and Business Logic (Use Cases).
+Layered Folder Structure:
+
+/lib
+  /core (utils, themes, error handling)
+  /features
+    /auth
+      /presentation (UI)
+      /application (State Management)
+      /domain (Use Cases, Entities)
+      /data (Repositories, Models)
+Data Abstraction: I ensure repositories expose interfaces instead of raw API calls or database queries.
+
+4. Which state management solutions have you used?
+Riverpod – My preferred choice for scalable, declarative state management with dependency injection.
+Bloc (flutter_bloc) – Great for predictable event-driven architecture and enterprise applications.
+Provider – Lightweight solution for simple apps but limited scalability.
+GetX – Used in fast prototyping, but I avoid it in large projects due to tight coupling and global state.
+Redux – Used in projects requiring predictable state with time-travel debugging but generally overkill for Flutter.
+
+5. How do you manage scrollable elements?
+ListView & CustomScrollView: I choose between ListView.builder for standard lists and CustomScrollView with Slivers for advanced layouts.
+ListView.builder()
+Uses lazy loading, meaning only visible items are rendered.
+
+Pagination & Lazy Loading: I use ScrollController to detect scroll position and fetch more data when reaching the end of a list.
+Performance Optimization:
+Avoid shrinkWrap: true unless necessary.
+Use const widgets and AutomaticKeepAliveClientMixin for keeping state in tab views.
+Prefer ListView.builder over Column + SingleChildScrollView.
+
+6. What do you do when there are extended security requirements for a financial institution app?
+Secure Storage: I use flutter_secure_storage to store sensitive data instead of SharedPreferences.
+Biometric Authentication: I integrate local_auth for Face ID/Touch ID/Android Biometrics.
+SSL Pinning: I use http with dio and flutter_ssl_pinning_plugin to prevent MITM attacks.
+Code Obfuscation: I enable obfuscation and minification (flutter build apk --obfuscate --split-debug-info).
+JWT & OAuth2 Security: I ensure proper token storage and refresh mechanism.
+Network Security Config: I enforce strict policies using network_security_config.xml on Android.
+Data Encryption: I use AES encryption for locally stored data and communication.
+7. How do you optimize widget rebuilds?
+
+Use const Widgets: I define widgets as const whenever possible to avoid unnecessary rebuilds.
+Avoid Unnecessary SetState: I lift state up or use state management to update only relevant UI parts.
+Use ValueListenableBuilder & Selector: Instead of rebuilding the entire widget tree, I optimize updates using fine-grained listeners (Riverpod’s watch/select or BlocSelector).
+Memoization with Equatable: I ensure data classes use Equatable to prevent unnecessary updates.
+Keys & KeepAlive Mixins: I use GlobalKey or AutomaticKeepAliveClientMixin to maintain state in tab-based UIs.
+
+8. If a request fails and there is a retry mechanism in which the request will be axecuted again, in which http error codes
+there is a reason to retry the request again?
+
+9. How do you manage conflict situations with a stackeholder, when he has different requirements for something?
