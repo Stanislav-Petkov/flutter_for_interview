@@ -1,0 +1,256 @@
+Content:
+
+56. Good programming practices - kiss, dry, yagni, composition over inheritance,
+57. Good programming practices - Law of demeter(Principle of Least Knowledge), DESIGN patterns,
+tda - tell don't ask
+
+
+
+
+56. https://pub.dev/packages/provider56. Good programming practices - kiss, dry, yagni, composition over inheritance
+57. Good programming practices - Law of demeter(Principle of Least Knowledge), DESIGN patterns,
+tda - tell don't ask
+
+57. Good programming practices - Law of demeter(Principle of Least Knowledge),DESIGN patterns
+
+DESIGN patterns
+https://medium.com/@hamber/flutter-dart-solid-principles-and-top-design-patterns-3dd573371dcb#:~:text=The%20Law%20of%20Demeter%20is,%2C%20essentially%20its%20%E2%80%9Cfriends%E2%80%9D.
+
+57.1. The Law of Demeter is a guideline that recommends objects to have limited knowledge of other objects.
+
+Each unit (or object) should be aware only of units that are closely related to itself, 
+essentially its “friends”.
+Direct interaction should be confined to these friends, avoiding any communication 
+with “strangers” or distant units.
+For instance, with three classes A, B, and C: If A can communicate with B, and B with C,
+A should not directly communicate with C even though there’s an indirect connection. 
+B is A’s friend, while C is a stranger to A.
+This approach encourages a design where an object knows or assumes as little as 
+possible about other objects, focusing mainly on its immediate neighbors.
+The Law of Demeter is also referred to as the Principle of Least Knowledge.
+
+
+57.2. Tell don't ask:
+https://medium.com/@shiiyan/understanding-the-tda-telldontask-principle-44acbc28bacb
+ Tell, Don’t Ask
+What does it mean?
+Instead of retrieving data from an object and processing it externally,
+ tell the object what to do.
+
+❌ Bad Example (violating the principle)
+class Account {
+  double balance = 100;
+
+  double getBalance() => balance; // Asking for data
+}
+
+class Bank {
+  void withdraw(Account account, double amount) {
+    if (account.getBalance() >= amount) { // 👎 External logic
+      print("Withdrawing $amount...");
+    }
+  }
+}
+🔴 Problem: The Bank class is making decisions based on Account data 
+instead of letting Account handle it.
+
+✅ Good Example (following the principle)
+
+class Account {
+  double balance = 100;
+
+  bool withdraw(double amount) {
+    if (balance >= amount) {
+      balance -= amount;
+      print("Withdrawing $amount...");
+      return true;
+    }
+    return false;
+  }
+}
+
+class Bank {
+  void processWithdrawal(Account account, double amount) {
+    account.withdraw(amount); // 👍 Telling the object to act
+  }
+}
+✅ Benefits:
+
+Encapsulation is stronger (Account manages its own data).
+Code is more modular and easier to maintain.
+
+57.3. Command-Query Separation (CQS)
+What does it mean?
+A method should either perform an action (Command) or return a value (Query)—but not both.
+
+❌ Bad Example (violating CQS)
+class Account {
+  double balance = 100;
+
+  double withdraw(double amount) { // 👎 Does both: modifies and returns data
+    if (balance >= amount) {
+      balance -= amount;
+    }
+    return balance;
+  }
+}
+🔴 Problem: The method both modifies state and returns data, 
+which can lead to unexpected behavior.
+
+✅ Good Example (following CQS)
+class Account {
+  double balance = 100;
+
+  void withdraw(double amount) { // 👍 Command (modifies state)
+    if (balance >= amount) {
+      balance -= amount;
+    }
+  }
+
+  double getBalance() => balance; // 👍 Query (only retrieves data)
+}
+✅ Benefits:
+
+Clear separation between actions and queries.
+Predictability: Methods that modify state don’t return values, reducing side effects.
+
+
+------------------------------------------------------------------------
+
+56. Good programming practices - kiss, dry, yagni, composition over inheritance,
+
+56.1- KISS (Keep It Simple, Stupid)
+Кодът трябва да бъде прост и лесен за разбиране.
+
+❌ Лош пример (ненужно сложен код):
+
+String reverseString(String input) {
+  return input.split('').reversed.join();
+}
+✅ По-ясен вариант (разбиване на стъпки):
+
+String reverseString(String input) {
+  List<String> chars = input.split('');
+  chars = chars.reversed.toList();
+  return chars.join();
+}
+📌 Когато кодът е по-ясен, той е по-лесен за поддръжка!
+
+
+56.2-  DRY (Don’t Repeat Yourself)
+Избягване на дублиране на код, като използваме функции, наследяване или композиция.
+
+Лош пример (дублиран код):
+class Dog {
+  void makeSound() {
+    print("Бау-бау!");
+  }
+}
+
+class Cat {
+  void makeSound() {
+    print("Мяу-мяу!");
+  }
+}
+Добър пример (използване на наследяване или интерфейс):
+
+abstract class Animal {
+  void makeSound();
+}
+
+class Dog extends Animal {
+  @override
+  void makeSound() => print("Бау-бау!");
+}
+
+class Cat extends Animal {
+  @override
+  void makeSound() => print("Мяу-мяу!");
+}
+✅ Избягваме дублирането и правим кода по-гъвкав.
+
+
+56.3- YAGNI (You Ain’t Gonna Need It)
+🚫 Не добавяй функционалност, която не ти трябва в момента.
+
+❌ Лош пример: (ненужно сложен клас)
+
+class Vehicle {
+  void move() {}
+  void fly() {} // Ще използваме ли летене? 🤔
+}
+✅ Добър пример: (разделяме класовете според нуждите)
+
+class Car {
+  void move() => print("Каране...");
+}
+
+class Airplane {
+  void fly() => print("Летене...");
+}
+📌 Не добавяй ненужен код, който може никога да не бъде използван.
+
+
+56.4. Composition Over Inheritance (Композиция вместо наследяване)
+📌 Композицията е по-гъвкава от наследяването и предотвратява проблеми
+ като дълбока йерархия и трудно тестване.
+
+Композиция с интерфейси (Dependency Injection)
+Dart насърчава зависимост чрез интерфейси, което улеснява тестването и подмяната на компоненти.
+
+abstract class Engine {
+  void start();
+  void stop();
+}
+
+// Различни видове двигатели
+class PetrolEngine implements Engine {
+  @override
+  void start() => print("Бензинов двигател стартира...");
+
+  @override
+  void stop() => print("Бензинов двигател спира...");
+}
+
+class ElectricEngine implements Engine {
+  @override
+  void start() => print("Електрически двигател стартира...");
+
+  @override
+  void stop() => print("Електрически двигател спира...");
+}
+
+// Колата използва Engine чрез композиция
+class Car {
+  final Engine engine;
+
+  Car(this.engine);
+
+  void startCar() {
+    print("Колата се стартира...");
+    engine.start();
+  }
+
+  void stopCar() {
+    print("Колата спира...");
+    engine.stop();
+  }
+}
+
+void main() {
+  var petrolCar = Car(PetrolEngine());
+  var electricCar = Car(ElectricEngine());
+
+  petrolCar.startCar();  // "Колата се стартира... Бензинов двигател стартира..."
+  electricCar.startCar(); // "Колата се стартира... Електрически двигател стартира..."
+}
+🔹 Какво печелим?
+✔ Можем лесно да сменим различни видове двигатели без промяна в Car.
+✔ Тестването е по-лесно – можем да използваме mock Engine за unit тестове.
+✔ Спазваме принципа Dependency Inversion (SOLID).
+
+📌 Заключение
+✅ Композицията е по-гъвкава от наследяването и позволява по-добър контрол върху кода.
+✅ Използвай композиция, когато единият обект "има" друг обект, но не е същият като него.
+✅ Чрез интерфейси и зависимости (Dependency Injection) кодът става по-лесен
+ за поддръжка, разширение и тестване. 🚀

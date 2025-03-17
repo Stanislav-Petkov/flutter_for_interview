@@ -253,9 +253,7 @@ different environments in a Flutter application. It allows us to
  define different implementations of the same class for different
   environments, such as development, staging, and production.
 
-
-56. https://pub.dev/packages/provider
-
+------------------------------------------------------------------------------------------------------
 55. Asynchronous programming vs parallelism
 https://applover.com/blog/dart-asynchronous-programming-vs-parallelism/#:~:text=This%20approach%20is%20called%20parallelism,load%20off%20the%20main%20isolate.
 

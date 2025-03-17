@@ -4,3 +4,5 @@
 
 3. NOTES for preparing for Flutter interview are in:
 PREPARATION_STEPS_NOTES/interview_preparation_steps.txt file in the project
+
+4. Concurrency, lock, synchonization in example lib/concurrency/synchonized example
